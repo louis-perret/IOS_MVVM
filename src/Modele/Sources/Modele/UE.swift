@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UE:Identifiable {
+public struct UE:Identifiable, Note {
     
     public let id:UUID
     public var name: String
@@ -15,7 +15,12 @@ public struct UE:Identifiable {
     public var matieres: [Matiere]
     public var moyenne: Float {
         get {
-            calculMoyenne()
+            var notes: [Float] = []
+            matieres.forEach{ matiere in notes.append(matiere.moyenne) }
+            return calculMoyenne(notes: notes )
+        }
+        set{
+            
         }
     }
     
@@ -28,15 +33,5 @@ public struct UE:Identifiable {
     
     public init(name: String, coef: Int, matieres: [Matiere]) {
         self.init(id: UUID(), name: name, coef: coef, matieres: matieres)
-    }
-    
-    public func calculMoyenne() -> Float {
-        var counts = 0
-        var totalMatieres: Float = 0.0
-        matieres.forEach { matiere in
-            counts = counts + 1
-            totalMatieres = totalMatieres + matiere.moyenne
-        }
-        return totalMatieres / Float(counts)
     }
 }

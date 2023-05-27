@@ -13,7 +13,7 @@ extension UE {
         public let id:UUID
         public var name: String
         public var coef: Int
-        public var matieres: [Matiere]
+        public var matieres: [Matiere.Data]
     }
     
     var data: Data { Data(id:self.id, name: self.name, coef: coef, matieres: [])}
@@ -22,23 +22,28 @@ extension UE {
         guard data.id == self.id else { return }
         self.name = data.name
         self.coef = data.coef
-        self.matieres = data.matieres
+       //  self.matieres = data.matieres.map{ }
     }
 }
 
-class UEVM : ObservableObject {
+class UEVM : ObservableObject, Identifiable {
+    public let id:UUID
     var original: UE
     @Published var model = UE.Data(id: UUID(), name: "", coef: 0, matieres: [])
     @Published var isEdited = false
+    public var matieres: [MatiereVM] = []
+    
     var moyenne: Float {
         get {
             original.moyenne
         }
     }
     
-    init(withUE ue: UE){
+    init(withUE ue: UE, andId id : UUID){
         self.original = ue
         model = original.data
+        self.id = id
+        original.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
     }
     
     func onEditing(){

@@ -11,5 +11,7 @@ public struct ColorAssets {
     
     public static let COLORRECTANGLEGREEN = "colorCapsuleGreen"
     public static let COLORRECTANGLERED = "colorCapsuleRed"
-    public static let ICONCOLOR = "iconIcon"
+    public static let ICONCOLOR = "iconColor"
+    public static let PRIMARYCOLOR = "primaryColor"
+    public static let TEXTCOLOR = "textColor"
 }

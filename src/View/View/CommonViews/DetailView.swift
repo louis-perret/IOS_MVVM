@@ -19,9 +19,9 @@ struct DetailView: View {
         //GeometryReader { geometry in
             VStack {
                 HStack {
-                    Text(title).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                    Text(title).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)).foregroundColor(Color(ColorAssets.TEXTCOLOR))
                     Spacer()
-                    Text(String(coef))
+                    Text(String(coef)).foregroundColor(Color(ColorAssets.TEXTCOLOR))
                 }
                 
                 HStack {
@@ -29,7 +29,7 @@ struct DetailView: View {
                         .fill(Color(colorRectangle))
                         //.frame(width: geometry.size.width * 0.60 * (CGFloat(moyenne)*0.05) , height: geometry.size.height * 0.04)
                         .frame(width: UIScreen.main.bounds.width * 0.60 * (CGFloat(moyenne)*0.05) , height: UIScreen.main.bounds.height * 0.04)
-                    Text(String(moyenne))
+                    Text(String(moyenne)).foregroundColor(Color(ColorAssets.TEXTCOLOR))
                     Spacer()
                 }
                 Divider()

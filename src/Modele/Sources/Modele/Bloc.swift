@@ -10,20 +10,21 @@ import Foundation
 public struct Bloc:Identifiable {
     
     public let id:UUID
+    public var nom: String
     public var listeUE : [UE]
     public var moyenne: Float {
-        let totalCoefficients = listeUE.reduce(into: 0.0) { $0 + Float($1.coef)}
-        let weightedGrades = listeUE.reduce(into: 0.0) { $0 + $1.moyenne * Float($1.coef) }
-        return weightedGrades / totalCoefficients
+        var notes: [Float] = []
+        listeUE.forEach{ ue in notes.append(ue.moyenne) }
+        return calculMoyenne(notes: notes )
     }
     
-    public init(id: UUID, listeUE: [UE]) {
+    public init(id: UUID, nom: String, listeUE: [UE]) {
         self.id = id
+        self.nom = nom
         self.listeUE = listeUE
     }
     
     public init(listeUE: [UE]) {
-        self.init(id: UUID(), listeUE: listeUE)
+        self.init(id: UUID(), nom: "Sans nom", listeUE: listeUE)
     }
-    
 }

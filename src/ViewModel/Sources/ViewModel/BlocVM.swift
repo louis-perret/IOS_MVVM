@@ -8,7 +8,7 @@
 import Foundation
 import Modele
 
-class OdinVM : ObservableObject {
+/*class BlocVM : ObservableObject {
     var original: Odin
     
     // public var blocs: [BlocVM]
@@ -19,4 +19,4 @@ class OdinVM : ObservableObject {
         self.original = odin
         odin.ues.forEach { ue in ues.append(UEVM(withUE: ue))}
     }
-}
+}*/

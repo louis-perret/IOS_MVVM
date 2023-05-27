@@ -12,7 +12,8 @@ extension Matiere {
     struct Data: Identifiable {
         public let id:UUID
         public var name: String
-        public var coef: Int    }
+        public var coef: Int
+    }
     
     var data: Data { Data(id:self.id, name: self.name, coef: coef)}
     
@@ -23,7 +24,8 @@ extension Matiere {
     }
 }
 
-class MatiereVM : ObservableObject {
+class MatiereVM : ObservableObject, Identifiable {
+    public let id:UUID
     var original: Matiere
     @Published var model = Matiere.Data(id: UUID(), name: "", coef: 0)
     @Published var isEdited = false
@@ -36,6 +38,7 @@ class MatiereVM : ObservableObject {
     init(withMatiere matiere: Matiere){
         self.original = matiere
         model = original.data
+        self.id = original.id
     }
     
     func onEditing(){

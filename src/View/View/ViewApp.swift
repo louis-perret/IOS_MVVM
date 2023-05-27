@@ -16,7 +16,7 @@ struct ViewApp: App {
     
     var body: some Scene {
         WindowGroup {
-            UEView(ue: odin.ues[0])
+            
         }
     }
 }

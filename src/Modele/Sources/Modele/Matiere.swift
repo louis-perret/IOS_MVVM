@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Matiere: Identifiable {
+public struct Matiere: Identifiable, Note {
     
     public let id:UUID
     public var name: String

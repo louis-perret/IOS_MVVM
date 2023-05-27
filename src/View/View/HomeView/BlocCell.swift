@@ -1,0 +1,28 @@
+//
+//  BlocView.swift
+//  View
+//
+//  Created by etudiant on 27/05/2023.
+//
+
+import SwiftUI
+import Modele
+
+struct BlocCell: View {
+    
+    @ObservedObject var blocVM: BlocVM
+    var body: some View {
+        HStack {
+            Label(blocVM.nom, systemImage: "doc.on.doc.fill").font(.title3)
+            Spacer()
+            Text(String(blocVM.moyenne))
+            Label("", systemImage: "graduationcap.circle.fill")
+        }
+    }
+}
+
+struct BlocView_Previews: PreviewProvider {
+    static var previews: some View {
+        BlocCell(blocVM: BlocVM(withBloc: Stub.Odin.blocs[0], andId: UUID()))
+    }
+}
