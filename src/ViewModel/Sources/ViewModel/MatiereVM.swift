@@ -13,27 +13,24 @@ extension Matiere {
         public let id:UUID
         public var name: String
         public var coef: Int
+        public var moyenne: Float
     }
     
-    var data: Data { Data(id:self.id, name: self.name, coef: coef)}
+    var data: Data { Data(id:self.id, name: self.name, coef: self.coef, moyenne: self.moyenne)}
     
     mutating func update(from data: Data) {
         guard data.id == self.id else { return }
         self.name = data.name
         self.coef = data.coef
+        self.moyenne = data.moyenne
     }
 }
 
 class MatiereVM : ObservableObject, Identifiable {
     public let id:UUID
     var original: Matiere
-    @Published var model = Matiere.Data(id: UUID(), name: "", coef: 0)
+    @Published var model = Matiere.Data(id: UUID(), name: "", coef: 0, moyenne: 10)
     @Published var isEdited = false
-    var moyenne: Float {
-        get {
-            original.moyenne
-        }
-    }
     
     init(withMatiere matiere: Matiere){
         self.original = matiere

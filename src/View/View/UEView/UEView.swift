@@ -22,7 +22,7 @@ struct UEView: View {
                 
                 HStack {
                     Spacer()
-                    DetailView(title: ue.model.name, moyenne: ue.moyenne, coef:   ue.model.coef).frame(width: geometry.size.width * 0.85)
+                    UEDetailView(ue: ue).frame(width: geometry.size.width * 0.85)
                 }
                 
                 HStack {
@@ -36,7 +36,7 @@ struct UEView: View {
                 
                 ScrollView {
                     ForEach(ue.matieres) { matiere in
-                        MatiereCell(matiere: matiere, isEdited: ue.isEdited)
+                        MatiereCell(matiere: matiere)
                     }
                 }
                 
@@ -44,10 +44,16 @@ struct UEView: View {
                  MatiereCell(matiere: matiere)
                  }.listStyle(.inset)*/
                 
-            }
+            }.navigationBarTitleDisplayMode(.inline)
             
             .padding()
-        }
+        }.toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing){
+                Button(action: {ue.onEditing()}) {
+                    Label("Edit", systemImage: "square.and.pencil")
+                }.foregroundColor(Color(ColorAssets.TEXTCOLOR))
+            }
+        }.padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
     }
 }
 

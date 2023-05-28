@@ -20,6 +20,7 @@
 		ECB6A2EB2A222FE8004F777F /* BlocsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EA2A222FE8004F777F /* BlocsView.swift */; };
 		ECB6A2ED2A2230A3004F777F /* BlocCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EC2A2230A3004F777F /* BlocCell.swift */; };
 		ECB6A2EF2A223259004F777F /* BlocVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EE2A223259004F777F /* BlocVM.swift */; };
+		ECE031072A23820900EE8B6D /* UEDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE031062A23820900EE8B6D /* UEDetailView.swift */; };
 		ECF1B0C62A1FA15C00D59CA9 /* ViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0C52A1FA15C00D59CA9 /* ViewApp.swift */; };
 		ECF1B0C82A1FA15C00D59CA9 /* UEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0C72A1FA15C00D59CA9 /* UEView.swift */; };
 		ECF1B0D72A1FA15D00D59CA9 /* ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0D62A1FA15D00D59CA9 /* ViewTests.swift */; };
@@ -64,6 +65,7 @@
 		ECB6A2EA2A222FE8004F777F /* BlocsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocsView.swift; sourceTree = "<group>"; };
 		ECB6A2EC2A2230A3004F777F /* BlocCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocCell.swift; sourceTree = "<group>"; };
 		ECB6A2EE2A223259004F777F /* BlocVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocVM.swift; sourceTree = "<group>"; };
+		ECE031062A23820900EE8B6D /* UEDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEDetailView.swift; sourceTree = "<group>"; };
 		ECF1B0C22A1FA15C00D59CA9 /* View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = View.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF1B0C52A1FA15C00D59CA9 /* ViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApp.swift; sourceTree = "<group>"; };
 		ECF1B0C72A1FA15C00D59CA9 /* UEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				ECF1B0F62A1FAC7100D59CA9 /* DetailView.swift */,
+				ECE031062A23820900EE8B6D /* UEDetailView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				ECF1B0F72A1FAC7100D59CA9 /* DetailView.swift in Sources */,
 				EC6593C32A20D1B700BB905B /* UEVM.swift in Sources */,
 				ECB6A2ED2A2230A3004F777F /* BlocCell.swift in Sources */,
+				ECE031072A23820900EE8B6D /* UEDetailView.swift in Sources */,
 				EC5EE9D52A2247300019F07B /* UEsView.swift in Sources */,
 				ECF1B1012A20131700D59CA9 /* MatiereCell.swift in Sources */,
 				ECF1B0FF2A2011A100D59CA9 /* InfoView.swift in Sources */,

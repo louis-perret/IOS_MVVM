@@ -36,7 +36,7 @@ struct EditingView: View {
                 
                 ScrollView {
                     ForEach(ue.matieres) { matiere in
-                        MatiereCell(matiere: matiere, isEdited: ue.isEdited)
+                        MatiereCell(matiere: matiere)
                     }
                 }
                 

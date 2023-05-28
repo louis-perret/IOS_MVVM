@@ -15,7 +15,6 @@ struct MainPage: View {
     
     var body: some View {
         HomeView(odin: odin)
-        
     }
 }
 

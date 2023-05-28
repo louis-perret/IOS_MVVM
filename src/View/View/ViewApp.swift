@@ -16,7 +16,7 @@ struct ViewApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
+            MainPage(odin: odin)
         }
     }
 }

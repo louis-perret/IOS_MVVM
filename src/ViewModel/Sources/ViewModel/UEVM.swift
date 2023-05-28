@@ -33,7 +33,7 @@ class UEVM : ObservableObject, Identifiable {
     @Published var isEdited = false
     public var matieres: [MatiereVM] = []
     
-    var moyenne: Float {
+    public var moyenne: Float {
         get {
             original.moyenne
         }
@@ -46,12 +46,12 @@ class UEVM : ObservableObject, Identifiable {
         original.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
     }
     
-    func onEditing(){
+    public func onEditing(){
         model = original.data
-        isEdited = true
+        isEdited = isEdited ? false : true
     }
     
-    func onEdited(isCancelled: Bool = false){
+    public func onEdited(isCancelled: Bool = false){
         if(!isCancelled){
             original.update(from: model)
         }
