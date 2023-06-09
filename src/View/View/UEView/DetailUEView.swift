@@ -51,6 +51,6 @@ struct DetailUEView: View {
 
 struct DetailUE_Previews: PreviewProvider {
     static var previews: some View {
-        DetailUEView(ue: UEVM(withUE: Stub.Odin.ues[0], andId: UUID()))
+        DetailUEView(ue: UEVM(withUE: Stub.Odin.ues[0]))
     }
 }

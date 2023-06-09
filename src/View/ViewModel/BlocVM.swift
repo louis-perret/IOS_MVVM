@@ -8,26 +8,51 @@
 import Foundation
 import Modele
 
-class BlocVM : ObservableObject, Identifiable {
-    public let id:UUID
-    var original: Bloc
+class BlocVM : ObservableObject, Identifiable, Equatable {
     
-    @Published public var ues: [UEVM] = []
+    @Published  var model: Bloc {
+        didSet {
+            if self.name != self.model.name {
+                self.name = self.model.name;
+            }
+            if !self.model.ues.compare(to: self.ues.map({$0.model})){
+                self.ues = self.model.ues.map({UEVM(withUE: $0)})
+            }
+        }
+    }
+    
+    public var id:UUID { model.id }
+    
+    @Published
+    public var name:String = "" {
+        didSet {
+            if self.model.name != self.name {
+                self.model.name = self.name;
+            }
+        }
+    }
+    
     var moyenne: Float {
         get {
-            original.moyenne
+            model.moyenne
         }
     }
 
-    var nom: String {
-        get {
-            original.nom
+    @Published public var ues: [UEVM] = [] {
+        didSet {
+            let someUEsModel = self.ues.map({$0.model})
+            if !self.model.ues.compare(to: someUEsModel){
+                self.model.ues = self.ues.map({$0.model})
+            }
         }
     }
     
-    init(withBloc bloc: Bloc, andId id: UUID){
-        self.original = bloc
-        self.id = id
-        bloc.listeUE.forEach { ue in ues.append(UEVM(withUE: ue))}
+    init(withBloc bloc: Bloc){
+        self.model = bloc
+        bloc.ues.forEach { ue in ues.append(UEVM(withUE: ue))}
+    }
+    
+    static func == (lhs: BlocVM, rhs: BlocVM) -> Bool {
+        lhs.id == rhs.id
     }
 }

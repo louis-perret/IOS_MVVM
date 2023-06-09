@@ -13,7 +13,7 @@ struct BlocCell: View {
     @ObservedObject var blocVM: BlocVM
     var body: some View {
         HStack {
-            Label(blocVM.nom, systemImage: "doc.on.doc.fill").font(.title3)
+            Label(blocVM.name, systemImage: "doc.on.doc.fill").font(.title3)
             Spacer()
             Text(String(blocVM.moyenne))
             Label("", systemImage: "graduationcap.circle.fill")
@@ -23,6 +23,6 @@ struct BlocCell: View {
 
 struct BlocView_Previews: PreviewProvider {
     static var previews: some View {
-        BlocCell(blocVM: BlocVM(withBloc: Stub.Odin.blocs[0], andId: UUID()))
+        BlocCell(blocVM: BlocVM(withBloc: Stub.Odin.blocs[0]))
     }
 }

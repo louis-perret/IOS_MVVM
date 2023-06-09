@@ -25,7 +25,7 @@ struct EditingUEView: View {
                     }.foregroundColor(Color(ColorAssets.ICONCOLOR))
                 }
                 ToolbarItem(placement: .navigationBarLeading){
-                    Button(action: {ue.onEdited(isCancelled: false)}) {
+                    Button(action: {ue.onEdited(isCancelled: true)}) {
                         Label("", systemImage: "arrow.uturn.backward.circle.fill")
                     }.foregroundColor(Color(ColorAssets.ICONCOLOR))
                 }
@@ -36,6 +36,6 @@ struct EditingUEView: View {
 
 struct EditingView_Previews: PreviewProvider {
     static var previews: some View {
-        EditingUEView(ue: UEVM(withUE: Stub.Odin.ues[0], andId: UUID()))
+        EditingUEView(ue: UEVM(withUE: Stub.Odin.ues[0]))
     }
 }

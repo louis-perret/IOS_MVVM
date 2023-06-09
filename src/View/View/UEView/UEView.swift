@@ -16,7 +16,7 @@ struct UEView: View {
         VStack{
             DetailUEView(ue: ue).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
         }
-        .sheet(isPresented: $ue.isEdited) {
+        .sheet(isPresented: $ue.isEditing) {
             EditingUEView(ue: ue)
         }
         .toolbar {
@@ -32,6 +32,6 @@ struct UEView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        UEView(ue: UEVM(withUE: Stub.Odin.ues[0], andId: UUID()))
+        UEView(ue: UEVM(withUE: Stub.Odin.ues[0]))
     }
 }

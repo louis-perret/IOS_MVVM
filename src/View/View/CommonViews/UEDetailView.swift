@@ -16,9 +16,9 @@ struct UEDetailView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("Nom", text: $ue.model.name).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!ue.isEdited)
+                TextField("Nom", text: $ue.model.name).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!ue.isEditing)
                 Spacer()
-                TextField("Coef", value: $ue.model.coef, formatter: NumberFormatter()).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!ue.isEdited).fixedSize()
+                TextField("Coef", value: $ue.model.coef, formatter: NumberFormatter()).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!ue.isEditing).fixedSize()
             }
             
             HStack {
@@ -36,6 +36,6 @@ struct UEDetailView: View {
 
 struct UEDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        UEDetailView(ue: UEVM(withUE: Stub.Odin.ues[0], andId: UUID()))
+        UEDetailView(ue: UEVM(withUE: Stub.Odin.ues[0]))
     }
 }

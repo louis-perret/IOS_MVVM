@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UE:Identifiable, Note {
+public struct UE:Identifiable, Note, Equatable {
     
     public let id:UUID
     public var name: String

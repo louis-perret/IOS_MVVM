@@ -65,8 +65,8 @@ public struct Stub {
         odin.ues.append(ue5)
         odin.ues.append(ue6)
         odin.ues.append(ue7)
-        let bloc1 = Bloc(id: UUID(), nom: "Total", listeUE: [ue1, ue2, ue3, ue4, ue5])
-        let bloc2 = Bloc(id: UUID(), nom: "Stage/Projet", listeUE: [ue6, ue7])
+        let bloc1 = Bloc(id: UUID(), name: "Total",ues: [ue1, ue2, ue3, ue4, ue5])
+        let bloc2 = Bloc(id: UUID(), name: "Stage/Projet", ues: [ue6, ue7])
         odin.blocs.append(bloc1)
         odin.blocs.append(bloc2)
         return odin

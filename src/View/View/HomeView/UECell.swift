@@ -22,6 +22,6 @@ struct UECell: View {
 
 struct UECell_Previews: PreviewProvider {
     static var previews: some View {
-        UECell(ue: UEVM(withUE: Stub.Odin.ues[0], andId: UUID()))
+        UECell(ue: UEVM(withUE: Stub.Odin.ues[0]))
     }
 }

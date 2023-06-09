@@ -17,6 +17,7 @@
 		EC6593C42A20D1B700BB905B /* OdinVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C12A20D1B700BB905B /* OdinVM.swift */; };
 		EC6593C52A20D1B700BB905B /* MatiereVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C22A20D1B700BB905B /* MatiereVM.swift */; };
 		EC6593C72A20E24700BB905B /* EditingUEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C62A20E24700BB905B /* EditingUEView.swift */; };
+		ECA05D482A33BA67004E4696 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA05D472A33BA67004E4696 /* ArrayExtension.swift */; };
 		ECB6A2E92A222F11004F777F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2E82A222F11004F777F /* HomeView.swift */; };
 		ECB6A2EB2A222FE8004F777F /* BlocsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EA2A222FE8004F777F /* BlocsView.swift */; };
 		ECB6A2ED2A2230A3004F777F /* BlocCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EC2A2230A3004F777F /* BlocCell.swift */; };
@@ -64,6 +65,7 @@
 		EC6593C12A20D1B700BB905B /* OdinVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OdinVM.swift; path = ../../ViewModel/Sources/ViewModel/OdinVM.swift; sourceTree = "<group>"; };
 		EC6593C22A20D1B700BB905B /* MatiereVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatiereVM.swift; path = ../../ViewModel/Sources/ViewModel/MatiereVM.swift; sourceTree = "<group>"; };
 		EC6593C62A20E24700BB905B /* EditingUEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingUEView.swift; sourceTree = "<group>"; };
+		ECA05D472A33BA67004E4696 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		ECB6A2E82A222F11004F777F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ECB6A2EA2A222FE8004F777F /* BlocsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocsView.swift; sourceTree = "<group>"; };
 		ECB6A2EC2A2230A3004F777F /* BlocCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ECA05D462A33BA55004E4696 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ECA05D472A33BA67004E4696 /* ArrayExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		ECB6A2E72A222EE5004F777F /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		ECF1B0B92A1FA15C00D59CA9 = {
 			isa = PBXGroup;
 			children = (
+				ECA05D462A33BA55004E4696 /* Extensions */,
 				ECF1B1022A201A6B00D59CA9 /* ViewModel */,
 				ECF1B0F82A1FAE9600D59CA9 /* Assets */,
 				ECF1B0C42A1FA15C00D59CA9 /* View */,
@@ -378,6 +389,7 @@
 				ECB6A2E92A222F11004F777F /* HomeView.swift in Sources */,
 				ECB6A2EB2A222FE8004F777F /* BlocsView.swift in Sources */,
 				EC6593C52A20D1B700BB905B /* MatiereVM.swift in Sources */,
+				ECA05D482A33BA67004E4696 /* ArrayExtension.swift in Sources */,
 				ECF1B0FC2A1FB01900D59CA9 /* ColorAssets.swift in Sources */,
 				ECF1B0C62A1FA15C00D59CA9 /* ViewApp.swift in Sources */,
 			);

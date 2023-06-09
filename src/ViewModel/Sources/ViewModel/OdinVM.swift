@@ -9,14 +9,48 @@ import Foundation
 import Modele
 
 class OdinVM : ObservableObject {
-    var original: Odin
-    
-    @Published public var blocs: [BlocVM] = []
-    @Published public var ues: [UEVM] = []
-    
-    init(withOdin odin: Odin){
-        self.original = odin
-        odin.blocs.forEach { bloc in blocs.append(BlocVM(withBloc: bloc, andId:UUID()))}
-        odin.ues.forEach { ue in ues.append(UEVM(withUE: ue))}
+    @Published  var model: Odin {
+        didSet {
+            if !self.model.ues.compare(to: self.ues.map({$0.model})){
+                self.ues = self.model.ues.map({UEVM(withUE: $0)})
+            }
+            if !self.model.blocs.compare(to: self.blocs.map({$0.model})){
+                self.blocs = self.model.blocs.map({BlocVM(withBloc:$0)})
+            }
+        }
     }
+    
+    @Published public var blocs: [BlocVM] = [] {
+        didSet {
+            let someBlocsModel = self.blocs.map({$0.model})
+            if !self.model.blocs.compare(to: someBlocsModel){
+                self.model.blocs = self.blocs.map({$0.model})
+            }
+        }
+    }
+    
+    @Published public var ues: [UEVM] = [] {
+        didSet {
+            let someUEsModel = self.ues.map({$0.model})
+            if !self.model.ues.compare(to: someUEsModel){
+                self.model.ues = self.ues.map({$0.model})
+            }
+        }
+    }
+    
+    public init(withOdin odin: Odin){
+        self.model = odin
+        odin.blocs.forEach { bloc in blocs.append(BlocVM(withBloc: bloc))}
+        // odin.ues.forEach { ue in ues.append(UEVM(withUE: ue))}
+    }
+    
+    public init(blocs : [BlocVM], ues : [UEVM]) {
+        self.model = Odin()
+        self.blocs = blocs
+        self.ues = ues
+        
+        self.model.blocs = self.blocs.map({$0.model})
+        self.model.ues = self.ues.map({$0.model})
+    }
+
 }

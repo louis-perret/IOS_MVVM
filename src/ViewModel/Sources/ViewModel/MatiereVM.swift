@@ -10,6 +10,7 @@ import Modele
 
 
 class MatiereVM : BaseVM, Identifiable {
+    
     @Published var model: Matiere {
         didSet {
             if self.name != model.name {
@@ -75,5 +76,9 @@ class MatiereVM : BaseVM, Identifiable {
         }
         isEdited = false
         editedCopy = nil
+    }
+    
+    static func == (lhs: MatiereVM, rhs: MatiereVM) -> Bool {
+        lhs.id == rhs.id
     }
 }
