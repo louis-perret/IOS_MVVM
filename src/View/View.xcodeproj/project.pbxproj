@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC476C892A29E45100603A76 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC476C882A29E45100603A76 /* BaseVM.swift */; };
 		EC5EE9D52A2247300019F07B /* UEsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EE9D42A2247300019F07B /* UEsView.swift */; };
 		EC5EE9D72A2249700019F07B /* UECell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EE9D62A2249700019F07B /* UECell.swift */; };
 		EC5EE9D92A2258790019F07B /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EE9D82A2258790019F07B /* MainPage.swift */; };
@@ -15,12 +16,13 @@
 		EC6593C32A20D1B700BB905B /* UEVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C02A20D1B700BB905B /* UEVM.swift */; };
 		EC6593C42A20D1B700BB905B /* OdinVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C12A20D1B700BB905B /* OdinVM.swift */; };
 		EC6593C52A20D1B700BB905B /* MatiereVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C22A20D1B700BB905B /* MatiereVM.swift */; };
-		EC6593C72A20E24700BB905B /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C62A20E24700BB905B /* EditingView.swift */; };
+		EC6593C72A20E24700BB905B /* EditingUEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C62A20E24700BB905B /* EditingUEView.swift */; };
 		ECB6A2E92A222F11004F777F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2E82A222F11004F777F /* HomeView.swift */; };
 		ECB6A2EB2A222FE8004F777F /* BlocsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EA2A222FE8004F777F /* BlocsView.swift */; };
 		ECB6A2ED2A2230A3004F777F /* BlocCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EC2A2230A3004F777F /* BlocCell.swift */; };
 		ECB6A2EF2A223259004F777F /* BlocVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EE2A223259004F777F /* BlocVM.swift */; };
 		ECE031072A23820900EE8B6D /* UEDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE031062A23820900EE8B6D /* UEDetailView.swift */; };
+		ECE031092A23E41800EE8B6D /* DetailUEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE031082A23E41800EE8B6D /* DetailUEView.swift */; };
 		ECF1B0C62A1FA15C00D59CA9 /* ViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0C52A1FA15C00D59CA9 /* ViewApp.swift */; };
 		ECF1B0C82A1FA15C00D59CA9 /* UEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0C72A1FA15C00D59CA9 /* UEView.swift */; };
 		ECF1B0D72A1FA15D00D59CA9 /* ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0D62A1FA15D00D59CA9 /* ViewTests.swift */; };
@@ -52,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC476C882A29E45100603A76 /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		EC5EE9D42A2247300019F07B /* UEsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEsView.swift; sourceTree = "<group>"; };
 		EC5EE9D62A2249700019F07B /* UECell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UECell.swift; sourceTree = "<group>"; };
 		EC5EE9D82A2258790019F07B /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -60,12 +63,13 @@
 		EC6593C02A20D1B700BB905B /* UEVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UEVM.swift; path = ../../ViewModel/Sources/ViewModel/UEVM.swift; sourceTree = "<group>"; };
 		EC6593C12A20D1B700BB905B /* OdinVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OdinVM.swift; path = ../../ViewModel/Sources/ViewModel/OdinVM.swift; sourceTree = "<group>"; };
 		EC6593C22A20D1B700BB905B /* MatiereVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatiereVM.swift; path = ../../ViewModel/Sources/ViewModel/MatiereVM.swift; sourceTree = "<group>"; };
-		EC6593C62A20E24700BB905B /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
+		EC6593C62A20E24700BB905B /* EditingUEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingUEView.swift; sourceTree = "<group>"; };
 		ECB6A2E82A222F11004F777F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ECB6A2EA2A222FE8004F777F /* BlocsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocsView.swift; sourceTree = "<group>"; };
 		ECB6A2EC2A2230A3004F777F /* BlocCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocCell.swift; sourceTree = "<group>"; };
 		ECB6A2EE2A223259004F777F /* BlocVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocVM.swift; sourceTree = "<group>"; };
 		ECE031062A23820900EE8B6D /* UEDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEDetailView.swift; sourceTree = "<group>"; };
+		ECE031082A23E41800EE8B6D /* DetailUEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUEView.swift; sourceTree = "<group>"; };
 		ECF1B0C22A1FA15C00D59CA9 /* View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = View.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF1B0C52A1FA15C00D59CA9 /* ViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApp.swift; sourceTree = "<group>"; };
 		ECF1B0C72A1FA15C00D59CA9 /* UEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEView.swift; sourceTree = "<group>"; };
@@ -110,8 +114,8 @@
 		ECB6A2E72A222EE5004F777F /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				ECB6A2E82A222F11004F777F /* HomeView.swift */,
 				ECB6A2EA2A222FE8004F777F /* BlocsView.swift */,
+				ECB6A2E82A222F11004F777F /* HomeView.swift */,
 				ECB6A2EC2A2230A3004F777F /* BlocCell.swift */,
 				EC5EE9D42A2247300019F07B /* UEsView.swift */,
 				EC5EE9D62A2249700019F07B /* UECell.swift */,
@@ -204,7 +208,8 @@
 				ECF1B0C72A1FA15C00D59CA9 /* UEView.swift */,
 				ECF1B0FE2A2011A100D59CA9 /* InfoView.swift */,
 				ECF1B1002A20131700D59CA9 /* MatiereCell.swift */,
-				EC6593C62A20E24700BB905B /* EditingView.swift */,
+				EC6593C62A20E24700BB905B /* EditingUEView.swift */,
+				ECE031082A23E41800EE8B6D /* DetailUEView.swift */,
 			);
 			path = UEView;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				EC6593C12A20D1B700BB905B /* OdinVM.swift */,
 				EC6593C02A20D1B700BB905B /* UEVM.swift */,
 				ECB6A2EE2A223259004F777F /* BlocVM.swift */,
+				EC476C882A29E45100603A76 /* BaseVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB6A2EF2A223259004F777F /* BlocVM.swift in Sources */,
+				ECE031092A23E41800EE8B6D /* DetailUEView.swift in Sources */,
 				EC5EE9D72A2249700019F07B /* UECell.swift in Sources */,
 				ECF1B0F72A1FAC7100D59CA9 /* DetailView.swift in Sources */,
 				EC6593C32A20D1B700BB905B /* UEVM.swift in Sources */,
@@ -362,9 +369,10 @@
 				ECE031072A23820900EE8B6D /* UEDetailView.swift in Sources */,
 				EC5EE9D52A2247300019F07B /* UEsView.swift in Sources */,
 				ECF1B1012A20131700D59CA9 /* MatiereCell.swift in Sources */,
+				EC476C892A29E45100603A76 /* BaseVM.swift in Sources */,
 				ECF1B0FF2A2011A100D59CA9 /* InfoView.swift in Sources */,
 				EC6593C42A20D1B700BB905B /* OdinVM.swift in Sources */,
-				EC6593C72A20E24700BB905B /* EditingView.swift in Sources */,
+				EC6593C72A20E24700BB905B /* EditingUEView.swift in Sources */,
 				EC5EE9D92A2258790019F07B /* MainPage.swift in Sources */,
 				ECF1B0C82A1FA15C00D59CA9 /* UEView.swift in Sources */,
 				ECB6A2E92A222F11004F777F /* HomeView.swift in Sources */,

@@ -17,6 +17,6 @@ class OdinVM : ObservableObject {
     init(withOdin odin: Odin){
         self.original = odin
         odin.blocs.forEach { bloc in blocs.append(BlocVM(withBloc: bloc, andId:UUID()))}
-        odin.ues.forEach { ue in ues.append(UEVM(withUE: ue, andId: UUID()))}
+        odin.ues.forEach { ue in ues.append(UEVM(withUE: ue))}
     }
 }

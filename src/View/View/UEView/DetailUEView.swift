@@ -1,14 +1,14 @@
 //
-//  EditingView.swift
+//  DetailUE.swift
 //  View
 //
-//  Created by etudiant on 26/05/2023.
+//  Created by etudiant on 28/05/2023.
 //
 
 import SwiftUI
 import Modele
 
-struct EditingView: View {
+struct DetailUEView: View {
     
     @ObservedObject var ue: UEVM
     
@@ -16,13 +16,13 @@ struct EditingView: View {
         GeometryReader { geometry in
             VStack {
                 HStack {
-                    TextField("Name of the EU", text: $ue.model.name).font(.title).fontWeight(.bold)
+                    Text(ue.model.name).font(.title).fontWeight(.bold)
                     Spacer()
                 }.padding(10)
                 
                 HStack {
                     Spacer()
-                    DetailView(title: ue.model.name, moyenne: ue.moyenne, coef:   ue.model.coef).frame(width: geometry.size.width * 0.85)
+                    UEDetailView(ue: ue).frame(width: geometry.size.width * 0.85)
                 }
                 
                 HStack {
@@ -46,12 +46,11 @@ struct EditingView: View {
                 
             }
         }
-        .padding()
     }
 }
 
-struct EditingView_Previews: PreviewProvider {
+struct DetailUE_Previews: PreviewProvider {
     static var previews: some View {
-        EditingView(ue: UEVM(withUE: Stub.Odin.ues[0], andId: UUID()))
+        DetailUEView(ue: UEVM(withUE: Stub.Odin.ues[0], andId: UUID()))
     }
 }

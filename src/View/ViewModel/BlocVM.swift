@@ -28,6 +28,6 @@ class BlocVM : ObservableObject, Identifiable {
     init(withBloc bloc: Bloc, andId id: UUID){
         self.original = bloc
         self.id = id
-        bloc.listeUE.forEach { ue in ues.append(UEVM(withUE: ue, andId: UUID()))}
+        bloc.listeUE.forEach { ue in ues.append(UEVM(withUE: ue))}
     }
 }

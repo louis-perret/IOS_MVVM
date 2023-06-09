@@ -22,12 +22,12 @@ struct MatiereCell: View {
                 if matiere.isEdited {
                     if value.translation.width < 0 { // drag vers la gauche
                         if matiere.model.moyenne >= 0.10 {
-                            matiere.model.moyenne = matiere.model.moyenne - 1
+                            matiere.model.moyenne = matiere.model.moyenne - Float(0.10)
                         }
                     }
                     else { // drag vers la droite
                         if matiere.model.moyenne <= 19.90 {
-                            matiere.model.moyenne = matiere.model.moyenne + 1
+                            matiere.model.moyenne = matiere.model.moyenne + Float(0.10)
                         }
                     }
                     
@@ -60,7 +60,7 @@ struct MatiereCell: View {
                         .frame(width: UIScreen.main.bounds.width * 0.60 * (CGFloat(matiere.model.moyenne)*0.05) , height: UIScreen.main.bounds.height * 0.04)
                         .gesture(dragGestureMoyenne)
                     //TextField("", value:$matiere.model.moyenne, formatter: NumberFormatter()).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(true)
-                    Text(String(matiere.model.moyenne)).foregroundColor(Color(ColorAssets.TEXTCOLOR))
+                    Text(String(format:"%.2f", matiere.model.moyenne)).foregroundColor(Color(ColorAssets.TEXTCOLOR))
                     Spacer()
                 }
                 Divider()

@@ -8,53 +8,70 @@
 import Foundation
 import Modele
 
-extension UE {
-    struct Data: Identifiable {
-        public let id:UUID
-        public var name: String
-        public var coef: Int
-        public var matieres: [Matiere.Data]
-    }
+class UEVM : BaseVM, Identifiable {
+    @Published var model: UE
     
-    var data: Data { Data(id:self.id, name: self.name, coef: coef, matieres: [])}
+    public var id:UUID { model.id }
     
-    mutating func update(from data: Data) {
-        guard data.id == self.id else { return }
-        self.name = data.name
-        self.coef = data.coef
-       //  self.matieres = data.matieres.map{ }
-    }
-}
-
-class UEVM : ObservableObject, Identifiable {
-    public let id:UUID
-    var original: UE
-    @Published var model = UE.Data(id: UUID(), name: "", coef: 0, matieres: [])
-    @Published var isEdited = false
-    public var matieres: [MatiereVM] = []
-    
-    public var moyenne: Float {
-        get {
-            original.moyenne
+    @Published
+    var name:String = "" {
+        didSet {
+            if self.model.name != self.name {
+                self.model.name = self.name;
+            }
         }
     }
     
-    init(withUE ue: UE, andId id : UUID){
-        self.original = ue
-        model = original.data
-        self.id = id
-        original.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
+    @Published
+    var coef:Int = 0 {
+        didSet {
+            if self.model.coef != self.coef {
+                self.model.coef = self.coef;
+            }
+        }
+    }
+    
+    @Published
+    var moyenne:Float = 0 {
+        didSet {
+            if self.model.moyenne != self.moyenne {
+                self.model.moyenne = self.moyenne;
+            }
+        }
+    }
+    
+    public var matieres: [MatiereVM] = []
+    
+    private var copy : UEVM {
+        UEVM(withUE: self.model)
+    }
+    @Published var isEditing = false
+    var editedCopy : UEVM?
+    
+    init(withUE ue: UE){
+        self.model = ue
+        // model.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
     }
     
     public func onEditing(){
-        model = original.data
-        isEdited = isEdited ? false : true
+        editedCopy = copy
+        isEditing = true
     }
     
     public func onEdited(isCancelled: Bool = false){
         if(!isCancelled){
-            original.update(from: model)
+            if let editedCopy = editedCopy {
+                self.model = editedCopy.model
+            }
         }
-        isEdited = false
+        isEditing = false
+        editedCopy = nil
+    }
+    
+    public func matiereHasChanged(vm: MatiereVM) {
+        var matiereModel = model.matieres.first(where: { $0.id == vm.id} )
+        matiereModel!.name = name
+        matiereModel!.coef = coef
+        matiereModel!.moyenne = moyenne
     }
 }

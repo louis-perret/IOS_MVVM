@@ -8,45 +8,72 @@
 import Foundation
 import Modele
 
-extension Matiere {
-    struct Data: Identifiable {
-        public let id:UUID
-        public var name: String
-        public var coef: Int
-        public var moyenne: Float
-    }
-    
-    var data: Data { Data(id:self.id, name: self.name, coef: self.coef, moyenne: self.moyenne)}
-    
-    mutating func update(from data: Data) {
-        guard data.id == self.id else { return }
-        self.name = data.name
-        self.coef = data.coef
-        self.moyenne = data.moyenne
-    }
-}
 
-class MatiereVM : ObservableObject, Identifiable {
-    public let id:UUID
-    var original: Matiere
-    @Published var model = Matiere.Data(id: UUID(), name: "", coef: 0, moyenne: 10)
-    @Published var isEdited = false
+class MatiereVM : BaseVM, Identifiable {
+    @Published var model: Matiere {
+        didSet {
+            if self.name != model.name {
+                self.name = model.name;
+            }
+            if self.coef != model.coef {
+                self.coef = model.coef;
+            }
+            if self.moyenne != model.moyenne {
+                self.moyenne = model.moyenne;
+            }
+        }
+    }
     
+    public var id:UUID { model.id }
+    
+    @Published
+    var name:String = "" {
+        didSet {
+            if self.model.name != self.name {
+                self.model.name = self.name;
+            }
+        }
+    }
+    
+    @Published
+    var coef:Int = 0 {
+        didSet {
+            if self.model.coef != self.coef {
+                self.model.coef = self.coef;
+            }
+        }
+    }
+    
+    @Published
+    var moyenne:Float = 0 {
+        didSet {
+            if self.model.moyenne != self.moyenne {
+                self.model.moyenne = self.moyenne;
+            }
+        }
+    }
+    private var copy : MatiereVM {
+        MatiereVM(withMatiere: self.model)
+    }
+    @Published var isEdited = false
+    var editedCopy : MatiereVM?
+
     init(withMatiere matiere: Matiere){
-        self.original = matiere
-        model = original.data
-        self.id = original.id
+        self.model = matiere
     }
     
     func onEditing(){
-        model = original.data
+        editedCopy = copy
         isEdited = true
     }
     
     func onEdited(isCancelled: Bool = false){
         if(!isCancelled){
-            original.update(from: model)
+            if let editedCopy = editedCopy {
+                self.model = editedCopy.model
+            }
         }
         isEdited = false
+        editedCopy = nil
     }
 }
