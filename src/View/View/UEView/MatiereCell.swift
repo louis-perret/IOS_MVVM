@@ -44,13 +44,14 @@ struct MatiereCell: View {
     var body: some View {
         HStack {
             Button{setIsEditing()} label: {
-                Label("", systemImage: icon).foregroundColor(Color(ColorAssets.ICONCOLOR))
+                Label("", systemImage: icon).foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
             }
             VStack {
                 HStack {
                     TextField("Nom", text: $matiere.name).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!matiere.isEdited)
                     Spacer()
                     TextField("Coef", value: $matiere.coef, formatter: NumberFormatter()).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!matiere.isEdited).fixedSize()
+                    
                 }
                 
                 HStack {

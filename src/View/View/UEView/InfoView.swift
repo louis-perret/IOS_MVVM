@@ -15,7 +15,7 @@ struct InfoView: View {
     var body: some View {
         HStack {
             Button {} label: {
-                Label("", systemImage: icon).foregroundColor(Color(ColorAssets.ICONCOLOR))
+                Label("", systemImage: icon).foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
             }
             Text(text)
         }

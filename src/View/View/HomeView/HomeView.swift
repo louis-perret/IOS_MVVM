@@ -18,12 +18,12 @@ struct HomeView: View {
                 VStack {
                     HStack {
                         BlocsView(odin: odin).padding(10)
-                    }.background(Color(ColorAssets.PRIMARYCOLOR)).cornerRadius(20).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                    }.background(Color(ColorAssets.BACKGROUNDCOLOR)).cornerRadius(20).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                     Divider()
                     
                     HStack {
                         UEsView(odin: odin).padding(10)
-                    }.background(Color(ColorAssets.PRIMARYCOLOR)).cornerRadius(20).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                    }.background(Color(ColorAssets.BACKGROUNDCOLOR)).cornerRadius(20).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 }
             }.navigationTitle("Calculette")
         }

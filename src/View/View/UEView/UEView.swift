@@ -23,12 +23,12 @@ struct UEView: View {
                         ToolbarItem(placement: .navigationBarTrailing){
                             Button(action: {ue.onEdited()}) {
                                 Label("", systemImage: "checkmark.circle.fill")
-                            }.foregroundColor(Color(ColorAssets.ICONCOLOR))
+                            }.foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
                         }
                         ToolbarItem(placement: .navigationBarLeading){
                             Button(action: {ue.onEdited(isCancelled: true)}) {
                                 Label("", systemImage: "arrow.uturn.backward.circle.fill")
-                            }.foregroundColor(Color(ColorAssets.ICONCOLOR))
+                            }.foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
                         }
                     }
             }.navigationTitle(ue.name)

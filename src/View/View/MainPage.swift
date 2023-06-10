@@ -14,7 +14,7 @@ struct MainPage: View {
     @ObservedObject var odin: OdinVM
     
     var body: some View {
-        HomeView(odin: odin)
+        HomeView(odin: odin).accentColor(Color(ColorAssets.PRIMARYCOLOR)).backgroundStyle(.black)
     }
 }
 

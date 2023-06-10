@@ -8,7 +8,7 @@
 import SwiftUI
 import Modele
 
-struct UEDetailView: View {
+struct UEInfoDetailView: View {
     
     @State var colorRectangle: String = ColorAssets.COLORRECTANGLEGREEN
     @ObservedObject var ue: UEVM
@@ -44,6 +44,6 @@ struct UEDetailView: View {
 
 struct UEDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        UEDetailView(ue: UEVM(withUE: Stub.Odin.ues[0]))
+        UEInfoDetailView(ue: UEVM(withUE: Stub.Odin.ues[0]))
     }
 }

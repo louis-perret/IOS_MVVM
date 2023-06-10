@@ -14,7 +14,7 @@ struct UECell: View {
     
     var body: some View {
         HStack {
-            UEDetailView(ue: ue)
+            UEInfoDetailView(ue: ue)
             Label("", systemImage: "square.and.pencil").font(.title2).foregroundColor(Color(ColorAssets.TEXTCOLOR))
         }
     }

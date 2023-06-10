@@ -110,4 +110,12 @@ class UEVM : ObservableObject, Identifiable, Equatable {
         model.matieres[index!] = mvm.model
         self.objectWillChange.send()
     }
+    
+    func onDeleted(_ matiere:MatiereVM, isCancelled cancel: Bool = false) {
+        if !cancel {
+            if self.matieres.contains(matiere) {
+                self.matieres.removeAll(where: {$0 == matiere})
+            }
+        }
+    }
 }

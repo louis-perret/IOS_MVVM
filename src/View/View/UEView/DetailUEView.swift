@@ -22,7 +22,7 @@ struct DetailUEView: View {
                 
                 HStack {
                     Spacer()
-                    UEDetailView(ue: ue).frame(width: geometry.size.width * 0.85)
+                    UEInfoDetailView(ue: ue).frame(width: geometry.size.width * 0.85)
                 }
                 
                 HStack {
@@ -35,8 +35,14 @@ struct DetailUEView: View {
                 }
                 
                 ScrollView {
+                    
                     ForEach(ue.matieres) { matiere in
-                        MatiereCell(matiere: matiere)
+                        HStack {
+                            MatiereCell(matiere: matiere)
+                            Button { ue.onDeleted(matiere) }  label: {
+                                Label("", systemImage:"trash").foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
+                            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)).hidden(!ue.isEditing)
+                        }
                     }
                 }
                 
