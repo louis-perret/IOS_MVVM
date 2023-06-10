@@ -9,7 +9,7 @@ import Foundation
 import Modele
 
 
-class MatiereVM : BaseVM, Identifiable {
+class MatiereVM : BaseVM, Identifiable, Equatable {
     
     @Published var model: Matiere {
         didSet {
@@ -22,6 +22,8 @@ class MatiereVM : BaseVM, Identifiable {
             if self.moyenne != model.moyenne {
                 self.moyenne = model.moyenne;
             }
+            
+            notifyPropertyChanged()
         }
     }
     
@@ -53,14 +55,26 @@ class MatiereVM : BaseVM, Identifiable {
             }
         }
     }
+    
     private var copy : MatiereVM {
         MatiereVM(withMatiere: self.model)
     }
+    
     @Published var isEdited = false
     var editedCopy : MatiereVM?
-
-    init(withMatiere matiere: Matiere){
+    
+    var ue: UEVM?
+    
+    private func notifyPropertyChanged(){
+        ue?.update(from: self)
+    }
+    
+    init(withMatiere matiere: Matiere, andEdition isEditing: Bool = false){
         self.model = matiere
+        self.name = matiere.name
+        self.coef = matiere.coef
+        self.moyenne = matiere.moyenne
+        self.isEdited = isEditing
     }
     
     func onEditing(){
@@ -79,6 +93,6 @@ class MatiereVM : BaseVM, Identifiable {
     }
     
     static func == (lhs: MatiereVM, rhs: MatiereVM) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id && lhs.model.name == rhs.model.name && lhs.model.coef == rhs.model.coef && lhs.model.moyenne == rhs.model.moyenne
     }
 }

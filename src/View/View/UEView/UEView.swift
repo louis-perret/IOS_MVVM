@@ -17,7 +17,22 @@ struct UEView: View {
             DetailUEView(ue: ue).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
         }
         .sheet(isPresented: $ue.isEditing) {
-            EditingUEView(ue: ue)
+            NavigationStack {
+                EditingUEView(ue: ue.editedCopy!)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button(action: {ue.onEdited()}) {
+                                Label("", systemImage: "checkmark.circle.fill")
+                            }.foregroundColor(Color(ColorAssets.ICONCOLOR))
+                        }
+                        ToolbarItem(placement: .navigationBarLeading){
+                            Button(action: {ue.onEdited(isCancelled: true)}) {
+                                Label("", systemImage: "arrow.uturn.backward.circle.fill")
+                            }.foregroundColor(Color(ColorAssets.ICONCOLOR))
+                        }
+                    }
+            }.navigationTitle(ue.name)
+            
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing){

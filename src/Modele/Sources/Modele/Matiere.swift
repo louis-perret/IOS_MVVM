@@ -17,4 +17,8 @@ public struct Matiere: Identifiable, Note, Equatable {
     public init(name: String, coef: Int, moyenne: Float){
         self.init(id: UUID(), name: name, coef: coef, moyenne: moyenne)
     }
+    
+    public static func == (lhs: Matiere, rhs: Matiere) -> Bool {
+        lhs.id == rhs.id
+    }
 }

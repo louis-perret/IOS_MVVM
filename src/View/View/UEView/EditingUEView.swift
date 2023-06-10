@@ -13,24 +13,10 @@ struct EditingUEView: View {
     @ObservedObject var ue: UEVM
     
     var body: some View {
-        NavigationStack {
-            VStack{
-                DetailUEView(ue: ue)
-            }
-            .padding()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {ue.onEdited()}) {
-                        Label("", systemImage: "checkmark.circle.fill")
-                    }.foregroundColor(Color(ColorAssets.ICONCOLOR))
-                }
-                ToolbarItem(placement: .navigationBarLeading){
-                    Button(action: {ue.onEdited(isCancelled: true)}) {
-                        Label("", systemImage: "arrow.uturn.backward.circle.fill")
-                    }.foregroundColor(Color(ColorAssets.ICONCOLOR))
-                }
-            }
+        VStack{
+            DetailUEView(ue: ue)
         }
+        .padding()
     }
 }
 

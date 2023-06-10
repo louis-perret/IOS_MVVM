@@ -21,17 +21,17 @@ struct MatiereCell: View {
             .onChanged { value in
                 if matiere.isEdited {
                     if value.translation.width < 0 { // drag vers la gauche
-                        if matiere.model.moyenne >= 0.10 {
-                            matiere.model.moyenne = matiere.model.moyenne - Float(0.10)
+                        if matiere.moyenne >= 0.10 {
+                            matiere.moyenne = matiere.moyenne - Float(0.10)
                         }
                     }
                     else { // drag vers la droite
-                        if matiere.model.moyenne <= 19.90 {
-                            matiere.model.moyenne = matiere.model.moyenne + Float(0.10)
+                        if matiere.moyenne <= 19.90 {
+                            matiere.moyenne = matiere.moyenne + Float(0.10)
                         }
                     }
                     
-                    if matiere.model.moyenne < 10 {
+                    if matiere.moyenne < 10 { // on update la couleur si ça dépasse ou non 10
                         colorRectangle = ColorAssets.COLORRECTANGLERED
                     }
                     else {
@@ -48,19 +48,19 @@ struct MatiereCell: View {
             }
             VStack {
                 HStack {
-                    TextField("Nom", text: $matiere.model.name).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!matiere.isEdited)
+                    TextField("Nom", text: $matiere.name).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!matiere.isEdited)
                     Spacer()
-                    TextField("Coef", value: $matiere.model.coef, formatter: NumberFormatter()).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!matiere.isEdited).fixedSize()
+                    TextField("Coef", value: $matiere.coef, formatter: NumberFormatter()).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(!matiere.isEdited).fixedSize()
                 }
                 
                 HStack {
                     Capsule()
                         .fill(Color(colorRectangle))
                         //.frame(width: geometry.size.width * 0.60 * (CGFloat(moyenne)*0.05) , height: geometry.size.height * 0.04)
-                        .frame(width: UIScreen.main.bounds.width * 0.60 * (CGFloat(matiere.model.moyenne)*0.05) , height: UIScreen.main.bounds.height * 0.04)
+                        .frame(width: UIScreen.main.bounds.width * 0.60 * (CGFloat(matiere.moyenne)*0.05) , height: UIScreen.main.bounds.height * 0.04)
                         .gesture(dragGestureMoyenne)
                     //TextField("", value:$matiere.model.moyenne, formatter: NumberFormatter()).foregroundColor(Color(ColorAssets.TEXTCOLOR)).disabled(true)
-                    Text(String(format:"%.2f", matiere.model.moyenne)).foregroundColor(Color(ColorAssets.TEXTCOLOR))
+                    Text(String(format:"%.2f", matiere.moyenne)).foregroundColor(Color(ColorAssets.TEXTCOLOR))
                     Spacer()
                 }
                 Divider()

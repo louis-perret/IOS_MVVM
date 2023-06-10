@@ -16,7 +16,7 @@ struct DetailUEView: View {
         GeometryReader { geometry in
             VStack {
                 HStack {
-                    Text(ue.model.name).font(.title).fontWeight(.bold)
+                    Text(ue.name).font(.title).fontWeight(.bold)
                     Spacer()
                 }.padding(10)
                 
@@ -26,7 +26,7 @@ struct DetailUEView: View {
                 }
                 
                 HStack {
-                    InfoView(icon: "xmark.circle.fill", text: "coefficient : \(ue.model.coef)")
+                    InfoView(icon: "xmark.circle.fill", text: "coefficient : \(ue.coef)")
                     Spacer()
                 }.padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
                 HStack {

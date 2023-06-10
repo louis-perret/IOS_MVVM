@@ -8,18 +8,33 @@
 import Foundation
 import Modele
 
-class UEVM : BaseVM, Identifiable, Equatable {
+class UEVM : ObservableObject, Identifiable, Equatable {
     
+    public init(withUE ue: UE, andEdition isEditing: Bool = false){
+        self.model = ue
+        self.name = ue.name
+        self.coef = ue.coef
+        self.isEditing = isEditing
+        self.matieres = ue.matieres.map({MatiereVM(withMatiere: $0, andEdition: self.isEditing)})
+        self.matieres.forEach { mvm in
+            mvm.ue = self
+        }
+        // ue.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
+    }
     @Published var model: UE {
         didSet {
             if self.name != self.model.name {
-                self.name = self.model.name;
+                self.name = self.model.name
             }
             if self.coef != self.model.coef {
-                self.coef = self.model.coef;
+                self.coef = self.model.coef
             }
-            if !self.model.matieres.compare(to: self.matieres.map({$0.model})){
-                self.matieres = self.model.matieres.map({MatiereVM(withMatiere: $0)})
+            let newMatieresVM = self.model.matieres.map({MatiereVM(withMatiere: $0, andEdition: self.isEditing)})
+            if !self.matieres.compare(to: newMatieresVM){
+                self.matieres = newMatieresVM
+                self.matieres.forEach { mvm in
+                    mvm.ue = self
+                }
             }
         }
     }
@@ -44,7 +59,6 @@ class UEVM : BaseVM, Identifiable, Equatable {
         }
     }
     
-    
     public var moyenne:Float { model.moyenne }
     
     @Published public var matieres: [MatiereVM] = [] {
@@ -57,21 +71,17 @@ class UEVM : BaseVM, Identifiable, Equatable {
     }
     
     private var copy : UEVM {
-        UEVM(withUE: self.model)
+        UEVM(withUE: self.model, andEdition: self.isEditing)
     }
     
     @Published public var isEditing = false
     public var editedCopy : UEVM?
     
-    public init(withUE ue: UE){
-        self.model = ue
-        self.matieres = ue.matieres.map({MatiereVM(withMatiere: $0)})
-        // ue.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
-    }
+   
     
     public func onEditing(){
-        editedCopy = copy
         isEditing = true
+        editedCopy = copy
     }
     
     public func onEdited(isCancelled: Bool = false){
@@ -93,5 +103,11 @@ class UEVM : BaseVM, Identifiable, Equatable {
     
     static func == (lhs: UEVM, rhs: UEVM) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    func update(from mvm: MatiereVM){
+        let index = model.matieres.firstIndex(of: mvm.model)
+        model.matieres[index!] = mvm.model
+        self.objectWillChange.send()
     }
 }
