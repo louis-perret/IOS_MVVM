@@ -16,7 +16,7 @@ public struct UE:Identifiable, Note, Equatable {
     public var moyenne: Float {
         get {
             var notes: [Float] = []
-            matieres.forEach{ matiere in notes.append(matiere.moyenne) }
+            matieres.forEach{ matiere in for _ in 0...matiere.coef { notes.append(matiere.moyenne) } }
             return calculMoyenne(notes: notes )
         }
         set{

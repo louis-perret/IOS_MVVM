@@ -21,13 +21,16 @@ struct MatiereCell: View {
             .onChanged { value in
                 if matiere.isEdited {
                     if value.translation.width < 0 { // drag vers la gauche
-                        if matiere.moyenne >= 0.10 {
+                        if matiere.moyenne > 0.10 {
                             matiere.moyenne = matiere.moyenne - Float(0.10)
                         }
                     }
                     else { // drag vers la droite
-                        if matiere.moyenne <= 19.90 {
+                        if matiere.moyenne < 19.90 {
                             matiere.moyenne = matiere.moyenne + Float(0.10)
+                        }
+                        else {
+                            matiere.moyenne = 20
                         }
                     }
                     

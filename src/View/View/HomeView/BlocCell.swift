@@ -15,7 +15,7 @@ struct BlocCell: View {
         HStack {
             Label(blocVM.name, systemImage: "doc.on.doc.fill").font(.title3)
             Spacer()
-            Text(String(blocVM.moyenne))
+            Text(String(format:"%.2f", blocVM.moyenne))
             Label("", systemImage: "graduationcap.circle.fill")
         }
     }

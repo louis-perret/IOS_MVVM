@@ -42,6 +42,7 @@ struct DetailUEView: View {
                             Button { ue.onDeleted(matiere) }  label: {
                                 Label("", systemImage:"trash").foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
                             }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)).hidden(!ue.isEditing)
+                            
                         }
                     }
                 }
