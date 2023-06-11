@@ -23,15 +23,20 @@ public struct Odin : Identifiable {
     
     public let id:UUID
     public var blocs: [Bloc]
-    public var ues: [UE]
+    public var ues: [UE] { getUEs() }
     
-    public init(id: UUID, blocs: [Bloc], ues: [UE]){
+    public init(id: UUID, blocs: [Bloc]){
         self.id = id
         self.blocs = blocs
-        self.ues = ues
     }
     
     public init(){
-        self.init(id:UUID(), blocs: [], ues: [])
+        self.init(id:UUID(), blocs: [])
+    }
+    
+    public func getUEs()-> [UE] {
+        var res : [UE] = []
+        self.blocs.forEach { bloc in bloc.ues.forEach { ue in res.append(ue) } }
+        return res
     }
 }

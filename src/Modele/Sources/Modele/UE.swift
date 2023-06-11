@@ -34,4 +34,8 @@ public struct UE:Identifiable, Note, Equatable {
     public init(name: String, coef: Int, matieres: [Matiere]) {
         self.init(id: UUID(), name: name, coef: coef, matieres: matieres)
     }
+    
+    public static func == (lhs: UE, rhs: UE) -> Bool {
+        lhs.id == rhs.id
+    }
 }

@@ -10,7 +10,7 @@ import Modele
 
 class UEVM : ObservableObject, Identifiable, Equatable {
     
-    public init(withUE ue: UE, andEdition isEditing: Bool = false){
+    public init(withUE ue: UE, andEdition isEditing: Bool = false, andBloc bloc : BlocVM? = nil){
         self.model = ue
         self.name = ue.name
         self.coef = ue.coef
@@ -19,6 +19,7 @@ class UEVM : ObservableObject, Identifiable, Equatable {
         self.matieres.forEach { mvm in
             mvm.ue = self
         }
+        self.bloc = bloc
         // ue.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
     }
     @Published var model: UE {
@@ -36,6 +37,8 @@ class UEVM : ObservableObject, Identifiable, Equatable {
                     mvm.ue = self
                 }
             }
+            
+            notifyPropertyChanged()
         }
     }
     
@@ -77,7 +80,11 @@ class UEVM : ObservableObject, Identifiable, Equatable {
     @Published public var isEditing = false
     public var editedCopy : UEVM?
     
-   
+    var bloc: BlocVM?
+    
+    private func notifyPropertyChanged(){
+        bloc?.update(from: self)
+    }
     
     public func onEditing(){
         isEditing = true
@@ -95,7 +102,7 @@ class UEVM : ObservableObject, Identifiable, Equatable {
     }
     
     static func == (lhs: UEVM, rhs: UEVM) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id && lhs.model.name == rhs.model.name && lhs.model.coef == rhs.model.coef && lhs.model.moyenne == rhs.model.moyenne && lhs.matieres.compare(to: rhs.matieres)
     }
     
     func update(from mvm: MatiereVM){

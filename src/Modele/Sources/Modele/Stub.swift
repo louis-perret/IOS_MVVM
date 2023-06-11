@@ -58,13 +58,14 @@ public struct Stub {
             Matiere(id: UUID(), name: "Stage", coef: 1, moyenne: -1)
         ])
         
-        odin.ues.append(ue1)
+        /* odin.ues.append(ue1)
         odin.ues.append(ue2)
         odin.ues.append(ue3)
         odin.ues.append(ue4)
         odin.ues.append(ue5)
         odin.ues.append(ue6)
-        odin.ues.append(ue7)
+        odin.ues.append(ue7) */
+        
         let bloc1 = Bloc(id: UUID(), name: "Total",ues: [ue1, ue2, ue3, ue4, ue5])
         let bloc2 = Bloc(id: UUID(), name: "Stage/Projet", ues: [ue6, ue7])
         odin.blocs.append(bloc1)

@@ -16,7 +16,7 @@ class BlocVM : ObservableObject, Identifiable, Equatable {
                 self.name = self.model.name;
             }
             if !self.model.ues.compare(to: self.ues.map({$0.model})){
-                self.ues = self.model.ues.map({UEVM(withUE: $0)})
+                self.ues = self.model.ues.map({UEVM(withUE: $0, andBloc: self)})
             }
         }
     }
@@ -32,11 +32,7 @@ class BlocVM : ObservableObject, Identifiable, Equatable {
         }
     }
     
-    var moyenne: Float {
-        get {
-            model.moyenne
-        }
-    }
+    public var moyenne:Float { model.moyenne }
 
     @Published public var ues: [UEVM] = [] {
         didSet {
@@ -49,7 +45,13 @@ class BlocVM : ObservableObject, Identifiable, Equatable {
     
     init(withBloc bloc: Bloc){
         self.model = bloc
-        bloc.ues.forEach { ue in ues.append(UEVM(withUE: ue))}
+        bloc.ues.forEach { ue in ues.append(UEVM(withUE: ue, andBloc: self))}
+    }
+    
+    func update(from evm: UEVM){
+        let index = model.ues.firstIndex(of: evm.model)
+        model.ues[index!] = evm.model
+        self.objectWillChange.send()
     }
     
     static func == (lhs: BlocVM, rhs: BlocVM) -> Bool {

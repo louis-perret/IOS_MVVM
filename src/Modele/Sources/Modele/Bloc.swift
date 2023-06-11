@@ -14,7 +14,7 @@ public struct Bloc:Identifiable, Equatable {
     public var ues : [UE]
     public var moyenne: Float {
         var notes: [Float] = []
-        ues.forEach{ ue in notes.append(ue.moyenne) }
+        ues.forEach{ ue in for _ in 0...ue.coef { notes.append(ue.moyenne) } }
         return calculMoyenne(notes: notes )
     }
     
