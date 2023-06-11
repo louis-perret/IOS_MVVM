@@ -69,6 +69,10 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
         ue?.update(from: self)
     }
     
+    convenience init(withEdition isEditing: Bool = false) {
+        self.init(withMatiere: Matiere(name: "Nouvelle matière", coef: 0, moyenne: 0), andEdition: isEditing)
+    }
+    
     init(withMatiere matiere: Matiere, andEdition isEditing: Bool = false){
         self.model = matiere
         self.name = matiere.name

@@ -94,13 +94,6 @@ class UEVM : ObservableObject, Identifiable, Equatable {
         editedCopy = nil
     }
     
-    public func matiereHasChanged(vm: MatiereVM) {
-        var matiereModel = model.matieres.first(where: { $0.id == vm.id} )
-        matiereModel!.name = name
-        matiereModel!.coef = coef
-        matiereModel!.moyenne = moyenne
-    }
-    
     static func == (lhs: UEVM, rhs: UEVM) -> Bool {
         lhs.id == rhs.id
     }
@@ -109,6 +102,10 @@ class UEVM : ObservableObject, Identifiable, Equatable {
         let index = model.matieres.firstIndex(of: mvm.model)
         model.matieres[index!] = mvm.model
         self.objectWillChange.send()
+    }
+    
+    func addMatiere() {
+        self.matieres.append(MatiereVM(withEdition: true))
     }
     
     func onDeleted(_ matiere:MatiereVM, isCancelled cancel: Bool = false) {

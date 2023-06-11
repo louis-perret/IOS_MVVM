@@ -34,6 +34,10 @@ struct DetailUEView: View {
                     Spacer()
                 }
                 
+                Button { ue.addMatiere() }  label: {
+                    Label("Ajouter matiere", systemImage:"plus.circle.fill").foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
+                }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)).hidden(!ue.isEditing)
+                
                 ScrollView {
                     
                     ForEach(ue.matieres) { matiere in

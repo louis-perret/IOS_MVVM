@@ -38,7 +38,7 @@ struct UEView: View {
             ToolbarItemGroup(placement: .navigationBarTrailing){
                 Button(action: {ue.onEditing()}) {
                     Label("Edit", systemImage: "square.and.pencil")
-                }.foregroundColor(Color(ColorAssets.TEXTCOLOR))
+                }.foregroundColor(Color(ColorAssets.PRIMARYCOLOR))
             }
         }
     }
