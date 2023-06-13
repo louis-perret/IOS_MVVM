@@ -8,7 +8,7 @@
 import Foundation
 import Modele
 
-public class UEVM : ObservableObject, Identifiable, Equatable {
+public class UEVM : ObservableObject, Identifiable, Equatable, Hashable {
     
     public init(withUE ue: UE, andEdition isEditing: Bool = false, andBloc bloc : BlocVM? = nil){
         self.model = ue
@@ -17,12 +17,17 @@ public class UEVM : ObservableObject, Identifiable, Equatable {
         self.isEditing = isEditing
         self.matieres = ue.matieres.map({MatiereVM(withMatiere: $0, andEdition: self.isEditing)})
         self.matieres.forEach { mvm in
-            mvm.ue = self
+            mvm.subscribe(with: self, and: onNotifyChanged)
         }
         self.bloc = bloc
         // ue.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
     }
     @Published var model: UE {
+        willSet(newValue) {
+            if !self.matieres.map({$0.model}).compare(to: newValue.matieres){
+                self.matieres.forEach { $0.unsubscribe(with: self) }
+            }
+        }
         didSet {
             if self.name != self.model.name {
                 self.name = self.model.name
@@ -34,7 +39,7 @@ public class UEVM : ObservableObject, Identifiable, Equatable {
             if !self.matieres.compare(to: newMatieresVM){
                 self.matieres = newMatieresVM
                 self.matieres.forEach { mvm in
-                    mvm.ue = self
+                    mvm.subscribe(with: self, and: onNotifyChanged)
                 }
             }
             
@@ -105,21 +110,36 @@ public class UEVM : ObservableObject, Identifiable, Equatable {
         lhs.id == rhs.id && lhs.model.name == rhs.model.name && lhs.model.coef == rhs.model.coef && lhs.model.moyenne == rhs.model.moyenne && lhs.matieres.compare(to: rhs.matieres)
     }
     
-    func update(from mvm: MatiereVM){
+    /*func update(from mvm: MatiereVM){
         let index = model.matieres.firstIndex(of: mvm.model)
         model.matieres[index!] = mvm.model
         self.objectWillChange.send()
-    }
+    }*/
     
     public func addMatiere() {
-        self.matieres.append(MatiereVM(withEdition: true))
+        var newMatiere = MatiereVM(withEdition: true)
+        newMatiere.subscribe(with: self, and: onNotifyChanged)
+        self.matieres.append(newMatiere)
     }
     
     public func onDeleted(_ matiere:MatiereVM, isCancelled cancel: Bool = false) {
         if !cancel {
             if self.matieres.contains(matiere) {
+                self.matieres.filter { $0 == matiere }
+                    .forEach { $0.unsubscribe(with: self) }
                 self.matieres.removeAll(where: {$0 == matiere})
             }
         }
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    func onNotifyChanged(source:MatiereVM){
+        if let index = self.model.matieres.firstIndex(of: source.model){
+            self.model.matieres[index] = source.model
+        }
+        self.objectWillChange.send()
     }
 }

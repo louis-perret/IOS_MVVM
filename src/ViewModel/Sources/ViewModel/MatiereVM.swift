@@ -22,7 +22,8 @@ public class MatiereVM : ObservableObject, Identifiable, Equatable {
                 self.moyenne = model.moyenne;
             }
             
-            notifyPropertyChanged()
+            // notifyPropertyChanged()
+            onNotify()
         }
     }
     
@@ -58,15 +59,30 @@ public class MatiereVM : ObservableObject, Identifiable, Equatable {
     private var copy : MatiereVM {
         MatiereVM(withMatiere: self.model)
     }
-    
     @Published public var isEdited = false
     public var editedCopy : MatiereVM?
     
-    var ue: UEVM?
+    // var ue: UEVM?
     
-    private func notifyPropertyChanged(){
-        ue?.update(from: self)
+    private var updateFuncs: [AnyHashable:(MatiereVM) -> ()] = [:]
+        
+    public func subscribe(with obj: AnyHashable, and function:@escaping (MatiereVM) -> ()) {
+        updateFuncs[obj] = function
     }
+        
+    public func unsubscribe(with obj: AnyHashable) {
+        updateFuncs.removeValue(forKey: obj)
+    }
+        
+    private func onNotify(){
+        for f in updateFuncs.values {
+            f(self)
+        }
+    }
+    
+    /*private func notifyPropertyChanged(){
+        ue?.update(from: self)
+    }*/
     
     public convenience init(withEdition isEditing: Bool = false) {
         self.init(withMatiere: Matiere(name: "Nouvelle matière", coef: 0, moyenne: 0), andEdition: isEditing)
