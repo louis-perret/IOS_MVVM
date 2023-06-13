@@ -8,7 +8,7 @@
 import Foundation
 import Modele
 
-class OdinVM : ObservableObject {
+public class OdinVM : ObservableObject {
     @Published  var model: Odin {
         didSet {
            /*if !self.model.ues.compare(to: self.ues.map({$0.model})){

@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import ViewModel
 import Modele
+
 
 /// The main page of the app
 struct MainPage: View {

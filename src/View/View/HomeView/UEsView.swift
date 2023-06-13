@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ViewModel
 import Modele
 
 struct UEsView: View {

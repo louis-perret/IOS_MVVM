@@ -7,22 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC1F80272A37645F00336AEA /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = EC1F80262A37645F00336AEA /* ViewModel */; };
 		EC2393382A35312500DBC6BF /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2393372A35312500DBC6BF /* ViewExtension.swift */; };
-		EC476C892A29E45100603A76 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC476C882A29E45100603A76 /* BaseVM.swift */; };
 		EC5EE9D52A2247300019F07B /* UEsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EE9D42A2247300019F07B /* UEsView.swift */; };
 		EC5EE9D72A2249700019F07B /* UECell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EE9D62A2249700019F07B /* UECell.swift */; };
 		EC5EE9D92A2258790019F07B /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EE9D82A2258790019F07B /* MainPage.swift */; };
-		EC5EE9E12A225A110019F07B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC5EE9DF2A225A110019F07B /* Assets.xcassets */; };
 		EC5EE9E32A225A9A0019F07B /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = EC5EE9E22A225A9A0019F07B /* Preview Content */; };
-		EC6593C32A20D1B700BB905B /* UEVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C02A20D1B700BB905B /* UEVM.swift */; };
-		EC6593C42A20D1B700BB905B /* OdinVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C12A20D1B700BB905B /* OdinVM.swift */; };
-		EC6593C52A20D1B700BB905B /* MatiereVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C22A20D1B700BB905B /* MatiereVM.swift */; };
 		EC6593C72A20E24700BB905B /* EditingUEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6593C62A20E24700BB905B /* EditingUEView.swift */; };
-		ECA05D482A33BA67004E4696 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA05D472A33BA67004E4696 /* ArrayExtension.swift */; };
 		ECB6A2E92A222F11004F777F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2E82A222F11004F777F /* HomeView.swift */; };
 		ECB6A2EB2A222FE8004F777F /* BlocsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EA2A222FE8004F777F /* BlocsView.swift */; };
 		ECB6A2ED2A2230A3004F777F /* BlocCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EC2A2230A3004F777F /* BlocCell.swift */; };
-		ECB6A2EF2A223259004F777F /* BlocVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6A2EE2A223259004F777F /* BlocVM.swift */; };
 		ECE031072A23820900EE8B6D /* UEInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE031062A23820900EE8B6D /* UEInfoDetailView.swift */; };
 		ECE031092A23E41800EE8B6D /* DetailUEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE031082A23E41800EE8B6D /* DetailUEView.swift */; };
 		ECF1B0C62A1FA15C00D59CA9 /* ViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0C52A1FA15C00D59CA9 /* ViewApp.swift */; };
@@ -30,7 +24,6 @@
 		ECF1B0D72A1FA15D00D59CA9 /* ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0D62A1FA15D00D59CA9 /* ViewTests.swift */; };
 		ECF1B0E12A1FA15D00D59CA9 /* ViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0E02A1FA15D00D59CA9 /* ViewUITests.swift */; };
 		ECF1B0E32A1FA15D00D59CA9 /* ViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0E22A1FA15D00D59CA9 /* ViewUITestsLaunchTests.swift */; };
-		ECF1B0F42A1FAA8100D59CA9 /* Modele in Frameworks */ = {isa = PBXBuildFile; productRef = ECF1B0F32A1FAA8100D59CA9 /* Modele */; };
 		ECF1B0FA2A1FAEFB00D59CA9 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF1B0F92A1FAEFB00D59CA9 /* ColorAssets.xcassets */; };
 		ECF1B0FC2A1FB01900D59CA9 /* ColorAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0FB2A1FB01900D59CA9 /* ColorAssets.swift */; };
 		ECF1B0FF2A2011A100D59CA9 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF1B0FE2A2011A100D59CA9 /* InfoView.swift */; };
@@ -55,22 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC1F80282A385FC000336AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2393372A35312500DBC6BF /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		EC476C882A29E45100603A76 /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		EC5EE9D42A2247300019F07B /* UEsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEsView.swift; sourceTree = "<group>"; };
 		EC5EE9D62A2249700019F07B /* UECell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UECell.swift; sourceTree = "<group>"; };
 		EC5EE9D82A2258790019F07B /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
-		EC5EE9DF2A225A110019F07B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC5EE9E22A225A9A0019F07B /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
-		EC6593C02A20D1B700BB905B /* UEVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UEVM.swift; path = ../../ViewModel/Sources/ViewModel/UEVM.swift; sourceTree = "<group>"; };
-		EC6593C12A20D1B700BB905B /* OdinVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OdinVM.swift; path = ../../ViewModel/Sources/ViewModel/OdinVM.swift; sourceTree = "<group>"; };
-		EC6593C22A20D1B700BB905B /* MatiereVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatiereVM.swift; path = ../../ViewModel/Sources/ViewModel/MatiereVM.swift; sourceTree = "<group>"; };
 		EC6593C62A20E24700BB905B /* EditingUEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingUEView.swift; sourceTree = "<group>"; };
-		ECA05D472A33BA67004E4696 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		ECB6A2E82A222F11004F777F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ECB6A2EA2A222FE8004F777F /* BlocsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocsView.swift; sourceTree = "<group>"; };
 		ECB6A2EC2A2230A3004F777F /* BlocCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocCell.swift; sourceTree = "<group>"; };
-		ECB6A2EE2A223259004F777F /* BlocVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocVM.swift; sourceTree = "<group>"; };
 		ECE031062A23820900EE8B6D /* UEInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEInfoDetailView.swift; sourceTree = "<group>"; };
 		ECE031082A23E41800EE8B6D /* DetailUEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUEView.swift; sourceTree = "<group>"; };
 		ECF1B0C22A1FA15C00D59CA9 /* View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = View.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECF1B0F42A1FAA8100D59CA9 /* Modele in Frameworks */,
+				EC1F80272A37645F00336AEA /* ViewModel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				EC2393372A35312500DBC6BF /* ViewExtension.swift */,
-				ECA05D472A33BA67004E4696 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -137,10 +123,9 @@
 		ECF1B0B92A1FA15C00D59CA9 = {
 			isa = PBXGroup;
 			children = (
-				ECA05D462A33BA55004E4696 /* Extensions */,
-				ECF1B1022A201A6B00D59CA9 /* ViewModel */,
-				ECF1B0F82A1FAE9600D59CA9 /* Assets */,
 				ECF1B0C42A1FA15C00D59CA9 /* View */,
+				ECA05D462A33BA55004E4696 /* Extensions */,
+				ECF1B0F82A1FAE9600D59CA9 /* Assets */,
 				ECF1B0D52A1FA15D00D59CA9 /* ViewTests */,
 				ECF1B0DF2A1FA15D00D59CA9 /* ViewUITests */,
 				ECF1B0C32A1FA15C00D59CA9 /* Products */,
@@ -161,8 +146,8 @@
 		ECF1B0C42A1FA15C00D59CA9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC1F80282A385FC000336AEA /* Assets.xcassets */,
 				EC5EE9E22A225A9A0019F07B /* Preview Content */,
-				EC5EE9DF2A225A110019F07B /* Assets.xcassets */,
 				ECB6A2E72A222EE5004F777F /* HomeView */,
 				ECF1B0FD2A200F9100D59CA9 /* UEView */,
 				ECF1B0F52A1FAC3900D59CA9 /* CommonViews */,
@@ -225,18 +210,6 @@
 			path = UEView;
 			sourceTree = "<group>";
 		};
-		ECF1B1022A201A6B00D59CA9 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EC6593C22A20D1B700BB905B /* MatiereVM.swift */,
-				EC6593C12A20D1B700BB905B /* OdinVM.swift */,
-				EC6593C02A20D1B700BB905B /* UEVM.swift */,
-				ECB6A2EE2A223259004F777F /* BlocVM.swift */,
-				EC476C882A29E45100603A76 /* BaseVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,7 +227,7 @@
 			);
 			name = View;
 			packageProductDependencies = (
-				ECF1B0F32A1FAA8100D59CA9 /* Modele */,
+				EC1F80262A37645F00336AEA /* ViewModel */,
 			);
 			productName = View;
 			productReference = ECF1B0C22A1FA15C00D59CA9 /* View.app */;
@@ -345,7 +318,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC5EE9E32A225A9A0019F07B /* Preview Content in Resources */,
-				EC5EE9E12A225A110019F07B /* Assets.xcassets in Resources */,
 				ECF1B0FA2A1FAEFB00D59CA9 /* ColorAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,24 +344,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2393382A35312500DBC6BF /* ViewExtension.swift in Sources */,
-				ECB6A2EF2A223259004F777F /* BlocVM.swift in Sources */,
 				ECE031092A23E41800EE8B6D /* DetailUEView.swift in Sources */,
 				EC5EE9D72A2249700019F07B /* UECell.swift in Sources */,
-				EC6593C32A20D1B700BB905B /* UEVM.swift in Sources */,
 				ECB6A2ED2A2230A3004F777F /* BlocCell.swift in Sources */,
 				ECE031072A23820900EE8B6D /* UEInfoDetailView.swift in Sources */,
 				EC5EE9D52A2247300019F07B /* UEsView.swift in Sources */,
 				ECF1B1012A20131700D59CA9 /* MatiereCell.swift in Sources */,
-				EC476C892A29E45100603A76 /* BaseVM.swift in Sources */,
 				ECF1B0FF2A2011A100D59CA9 /* InfoView.swift in Sources */,
-				EC6593C42A20D1B700BB905B /* OdinVM.swift in Sources */,
 				EC6593C72A20E24700BB905B /* EditingUEView.swift in Sources */,
 				EC5EE9D92A2258790019F07B /* MainPage.swift in Sources */,
 				ECF1B0C82A1FA15C00D59CA9 /* UEView.swift in Sources */,
 				ECB6A2E92A222F11004F777F /* HomeView.swift in Sources */,
 				ECB6A2EB2A222FE8004F777F /* BlocsView.swift in Sources */,
-				EC6593C52A20D1B700BB905B /* MatiereVM.swift in Sources */,
-				ECA05D482A33BA67004E4696 /* ArrayExtension.swift in Sources */,
 				ECF1B0FC2A1FB01900D59CA9 /* ColorAssets.swift in Sources */,
 				ECF1B0C62A1FA15C00D59CA9 /* ViewApp.swift in Sources */,
 			);
@@ -712,9 +678,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ECF1B0F32A1FAA8100D59CA9 /* Modele */ = {
+		EC1F80262A37645F00336AEA /* ViewModel */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Modele;
+			productName = ViewModel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

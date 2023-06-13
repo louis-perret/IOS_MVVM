@@ -8,7 +8,7 @@
 import Foundation
 import Modele
 
-class UEVM : ObservableObject, Identifiable, Equatable {
+public class UEVM : ObservableObject, Identifiable, Equatable {
     
     public init(withUE ue: UE, andEdition isEditing: Bool = false, andBloc bloc : BlocVM? = nil){
         self.model = ue
@@ -101,7 +101,7 @@ class UEVM : ObservableObject, Identifiable, Equatable {
         editedCopy = nil
     }
     
-    static func == (lhs: UEVM, rhs: UEVM) -> Bool {
+    public static func == (lhs: UEVM, rhs: UEVM) -> Bool {
         lhs.id == rhs.id && lhs.model.name == rhs.model.name && lhs.model.coef == rhs.model.coef && lhs.model.moyenne == rhs.model.moyenne && lhs.matieres.compare(to: rhs.matieres)
     }
     
@@ -111,11 +111,11 @@ class UEVM : ObservableObject, Identifiable, Equatable {
         self.objectWillChange.send()
     }
     
-    func addMatiere() {
+    public func addMatiere() {
         self.matieres.append(MatiereVM(withEdition: true))
     }
     
-    func onDeleted(_ matiere:MatiereVM, isCancelled cancel: Bool = false) {
+    public func onDeleted(_ matiere:MatiereVM, isCancelled cancel: Bool = false) {
         if !cancel {
             if self.matieres.contains(matiere) {
                 self.matieres.removeAll(where: {$0 == matiere})

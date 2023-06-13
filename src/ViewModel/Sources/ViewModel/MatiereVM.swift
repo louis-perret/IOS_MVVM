@@ -8,9 +8,8 @@
 import Foundation
 import Modele
 
+public class MatiereVM : ObservableObject, Identifiable, Equatable {
 
-class MatiereVM : BaseVM, Identifiable, Equatable {
-    
     @Published var model: Matiere {
         didSet {
             if self.name != model.name {
@@ -30,7 +29,7 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
     public var id:UUID { model.id }
     
     @Published
-    var name:String = "" {
+    public var name:String = "" {
         didSet {
             if self.model.name != self.name {
                 self.model.name = self.name;
@@ -39,7 +38,7 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
     }
     
     @Published
-    var coef:Int = 0 {
+    public var coef:Int = 0 {
         didSet {
             if self.model.coef != self.coef {
                 self.model.coef = self.coef;
@@ -48,7 +47,7 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
     }
     
     @Published
-    var moyenne:Float = 0 {
+    public var moyenne:Float = 0 {
         didSet {
             if self.model.moyenne != self.moyenne {
                 self.model.moyenne = self.moyenne;
@@ -60,8 +59,8 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
         MatiereVM(withMatiere: self.model)
     }
     
-    @Published var isEdited = false
-    var editedCopy : MatiereVM?
+    @Published public var isEdited = false
+    public var editedCopy : MatiereVM?
     
     var ue: UEVM?
     
@@ -69,11 +68,11 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
         ue?.update(from: self)
     }
     
-    convenience init(withEdition isEditing: Bool = false) {
+    public convenience init(withEdition isEditing: Bool = false) {
         self.init(withMatiere: Matiere(name: "Nouvelle matière", coef: 0, moyenne: 0), andEdition: isEditing)
     }
     
-    init(withMatiere matiere: Matiere, andEdition isEditing: Bool = false){
+    public init(withMatiere matiere: Matiere, andEdition isEditing: Bool = false){
         self.model = matiere
         self.name = matiere.name
         self.coef = matiere.coef
@@ -81,12 +80,12 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
         self.isEdited = isEditing
     }
     
-    func onEditing(){
+    public func onEditing(){
         editedCopy = copy
         isEdited = true
     }
     
-    func onEdited(isCancelled: Bool = false){
+    public func onEdited(isCancelled: Bool = false){
         if(!isCancelled){
             if let editedCopy = editedCopy {
                 self.model = editedCopy.model
@@ -96,7 +95,7 @@ class MatiereVM : BaseVM, Identifiable, Equatable {
         editedCopy = nil
     }
     
-    static func == (lhs: MatiereVM, rhs: MatiereVM) -> Bool {
+    public static func == (lhs: MatiereVM, rhs: MatiereVM) -> Bool {
         lhs.id == rhs.id && lhs.model.name == rhs.model.name && lhs.model.coef == rhs.model.coef && lhs.model.moyenne == rhs.model.moyenne
     }
 }

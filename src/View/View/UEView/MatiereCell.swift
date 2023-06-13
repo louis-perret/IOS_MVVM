@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ViewModel
 import Modele
 
 struct MatiereCell: View {
@@ -74,6 +75,12 @@ struct MatiereCell: View {
     
     init(matiere: MatiereVM) {
         self.matiere = matiere
+        if self.matiere.isEdited {
+            icon = MatiereCell.ICONOPENEDLOCK
+        }
+        else {
+            icon = MatiereCell.ICONCLOSEDLOCK
+        }
     }
     
     private func setIsEditing() {
