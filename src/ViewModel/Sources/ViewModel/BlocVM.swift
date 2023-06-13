@@ -8,7 +8,7 @@
 import Foundation
 import Modele
 
-public class BlocVM : ObservableObject, Identifiable, Equatable {
+public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
     
     @Published  var model: Bloc {
         didSet {
@@ -17,6 +17,9 @@ public class BlocVM : ObservableObject, Identifiable, Equatable {
             }
             if !self.model.ues.compare(to: self.ues.map({$0.model})){
                 self.ues = self.model.ues.map({UEVM(withUE: $0, andBloc: self)})
+                self.ues.forEach { euvm in
+                    euvm.subscribe(with: self, and: onNotifyChanged)
+                }
             }
         }
     }
@@ -46,6 +49,9 @@ public class BlocVM : ObservableObject, Identifiable, Equatable {
     public init(withBloc bloc: Bloc){
         self.model = bloc
         bloc.ues.forEach { ue in ues.append(UEVM(withUE: ue, andBloc: self))}
+        self.ues.forEach { euvm in
+            euvm.subscribe(with: self, and: onNotifyChanged)
+        }
     }
     
     func update(from evm: UEVM){
@@ -56,5 +62,16 @@ public class BlocVM : ObservableObject, Identifiable, Equatable {
     
     public static func == (lhs: BlocVM, rhs: BlocVM) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    func onNotifyChanged(source:UEVM){
+        if let index = self.model.ues.firstIndex(of: source.model){
+            self.model.ues[index] = source.model
+        }
+        self.objectWillChange.send()
     }
 }

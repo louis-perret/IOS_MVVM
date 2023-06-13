@@ -19,7 +19,7 @@ public class UEVM : ObservableObject, Identifiable, Equatable, Hashable {
         self.matieres.forEach { mvm in
             mvm.subscribe(with: self, and: onNotifyChanged)
         }
-        self.bloc = bloc
+       // self.bloc = bloc
         // ue.matieres.forEach { m in matieres.append(MatiereVM(withMatiere: m)) }
     }
     @Published var model: UE {
@@ -43,7 +43,8 @@ public class UEVM : ObservableObject, Identifiable, Equatable, Hashable {
                 }
             }
             
-            notifyPropertyChanged()
+            onNotify()
+           // notifyPropertyChanged()
         }
     }
     
@@ -85,11 +86,28 @@ public class UEVM : ObservableObject, Identifiable, Equatable, Hashable {
     @Published public var isEditing = false
     public var editedCopy : UEVM?
     
-    var bloc: BlocVM?
+    // var bloc: BlocVM?
     
+    private var updateFuncs: [AnyHashable:(UEVM) -> ()] = [:]
+        
+    public func subscribe(with obj: AnyHashable, and function:@escaping (UEVM) -> ()) {
+        updateFuncs[obj] = function
+    }
+        
+    public func unsubscribe(with obj: AnyHashable) {
+        updateFuncs.removeValue(forKey: obj)
+    }
+        
+    private func onNotify(){
+        for f in updateFuncs.values {
+            f(self)
+        }
+    }
+    
+    /*
     private func notifyPropertyChanged(){
         bloc?.update(from: self)
-    }
+    }*/
     
     public func onEditing(){
         isEditing = true
