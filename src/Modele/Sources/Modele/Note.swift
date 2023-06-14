@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Note {
+public protocol Note : Codable {
     var name: String { get set }
     var coef: Int { get set }
     var moyenne: Float { get set }

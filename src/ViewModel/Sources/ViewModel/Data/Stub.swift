@@ -1,11 +1,12 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by etudiant on 25/05/2023.
 //
 
 import Foundation
+import Modele
 
 public struct Stub {
     

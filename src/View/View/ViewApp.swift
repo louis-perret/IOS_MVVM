@@ -13,7 +13,7 @@ import Modele
 struct ViewApp: App {
     
     @StateObject
-    var odin : OdinVM = OdinVM(withOdin: Stub.Odin)
+    var odin : OdinVM = OdinVM()
     
     var body: some Scene {
         WindowGroup {

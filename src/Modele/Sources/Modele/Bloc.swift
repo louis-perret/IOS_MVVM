@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Bloc:Identifiable, Equatable {
+public struct Bloc:Identifiable, Equatable, Codable {
     
     public let id:UUID
     public var name: String

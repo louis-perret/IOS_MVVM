@@ -31,6 +31,10 @@ public class OdinVM : ObservableObject {
     
     public var ues: [UEVM] { getUEs() }
     
+    public convenience init(){
+        self.init(blocs:[], ues: [])
+    }
+    
     public init(withOdin odin: Odin){
         self.model = odin
         odin.blocs.forEach { bloc in blocs.append(BlocVM(withBloc: bloc))}
@@ -49,5 +53,33 @@ public class OdinVM : ObservableObject {
         self.blocs.forEach { bloc in bloc.ues.forEach { ue in res.append(ue) } }
         return res
     }
-
+    
+    public func loadData() async {
+        let res : [Bloc]?
+        do {
+            try res = await DataStore().load()
+                if let res = res {
+                    if res.isEmpty {
+                        self.model = Stub.Odin
+                    }
+                    else {
+                        self.model.blocs = res
+                    }
+                }
+                else {
+                    self.model = Stub.Odin
+                }
+        } catch {
+            self.model = Stub.Odin
+        }
+    }
+    
+    public func saveData() async {
+        do {
+            try await DataStore().save(blocs: self.model.blocs)
+        }
+        catch {
+            
+        }
+    }
 }
