@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Modele
 
+@MainActor
 class DataStore {
 
     private static func fileURL() throws -> URL {
@@ -36,6 +37,6 @@ class DataStore {
             let outfile = try Self.fileURL()
             try data.write(to: outfile)
         }
-        _ = try await task.value
+        try await task.value
     }
 }

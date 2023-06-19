@@ -17,7 +17,23 @@ struct ViewApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainPage(odin: odin)
+            HomeView(odin: odin) {
+                Task {
+                    do {
+                        try await odin.saveData()
+                    } catch {
+                        fatalError(error.localizedDescription)
+                    }
+                }
+            }.accentColor(Color(ColorAssets.PRIMARYCOLOR)).backgroundStyle(.black)
+                .task {
+                    do {
+                        try await odin.loadData()
+                    } catch {
+                        fatalError(error.localizedDescription)
+                        
+                    }
+                }
         }
     }
 }
