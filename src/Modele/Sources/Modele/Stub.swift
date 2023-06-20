@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+// Instancie un jeu de données pour les tests. Je l'ai mis côté Modèle parce que pour moi, un stub est intîmement lié au Modèle puisqu'il instancie directement propriété par proprité, contrairement à une BD, fichiers JSON, etc...
 public struct Stub {
     
     public static var Odin: Odin {

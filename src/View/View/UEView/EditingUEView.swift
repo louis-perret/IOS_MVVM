@@ -9,6 +9,7 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Vue pour l'édition d'une UE
 struct EditingUEView: View {
     
     @ObservedObject var ue: UEVM

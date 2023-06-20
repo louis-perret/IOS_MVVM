@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Structure wrappant les différents assets de couleurs de l'application
 public struct ColorAssets {
     
     public static let COLORRECTANGLEGREEN = "colorCapsuleGreen"

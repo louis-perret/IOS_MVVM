@@ -8,8 +8,10 @@
 import Foundation
 import Modele
 
+// ViewModel wrappant la classe Bloc contenue dans le model
 public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
     
+    // Model wrappé
     @Published  var model: Bloc {
         didSet {
             if self.name != self.model.name {
@@ -24,6 +26,7 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
         }
     }
     
+    // Propriétés du model wrappées par la VM
     public var id:UUID { model.id }
     
     @Published
@@ -35,7 +38,7 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
         }
     }
     
-    public var moyenne:Float { model.moyenne }
+    public var moyenne:Float { model.moyenne } // pas de @Published car propriété calculée
 
     @Published public var ues: [UEVM] = [] {
         didSet {
@@ -46,6 +49,7 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
         }
     }
     
+    // Init
     public init(withBloc bloc: Bloc){
         self.model = bloc
         bloc.ues.forEach { ue in ues.append(UEVM(withUE: ue, andBloc: self))}
@@ -54,20 +58,17 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
         }
     }
     
-    func update(from evm: UEVM){
-        let index = model.ues.firstIndex(of: evm.model)
-        model.ues[index!] = evm.model
-        self.objectWillChange.send()
-    }
-    
+    // Equals
     public static func == (lhs: BlocVM, rhs: BlocVM) -> Bool {
         lhs.id == rhs.id
     }
     
+    // Hashcode
     public func hash(into hasher: inout Hasher) {
         hasher.combine(name)
     }
     
+    // Méthode appelée quand une des UEVM du bloc a changé
     func onNotifyChanged(source:UEVM){
         if let index = self.model.ues.firstIndex(of: source.model){
             self.model.ues[index] = source.model

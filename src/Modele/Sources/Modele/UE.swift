@@ -7,7 +7,8 @@
 
 import Foundation
 
-public struct UE:Identifiable, Note, Equatable {
+// Représente une UE (une UE étant un regroupement de matières)
+public struct UE:Identifiable, Equatable {
     
     public let id:UUID
     public var name: String

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Effectue une moyenne sur un jeu de données
 public func calculMoyenne(notes: [Float]) -> Float {
     var counts = 0
     var totalNotes: Float = 0.0
@@ -19,12 +20,14 @@ public func calculMoyenne(notes: [Float]) -> Float {
     return totalNotes / Float(counts)
 }
 
+// Représente le manager des blocs
 public struct Odin : Identifiable {
     
     public let id:UUID
-    public var blocs: [Bloc]
-    public var ues: [UE] { getUEs() }
+    public var blocs: [Bloc] // Liste ded blocs à gérer
+    public var ues: [UE] { getUEs() } // Toutes les ues réparties au sein des blocs
     
+    // Init
     public init(id: UUID, blocs: [Bloc]){
         self.id = id
         self.blocs = blocs
@@ -34,6 +37,7 @@ public struct Odin : Identifiable {
         self.init(id:UUID(), blocs: [])
     }
     
+    // Récupère toutes les ues de tous les blocs
     public func getUEs()-> [UE] {
         var res : [UE] = []
         self.blocs.forEach { bloc in bloc.ues.forEach { ue in res.append(ue) } }

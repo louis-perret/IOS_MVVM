@@ -9,6 +9,7 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Gère l'affichage d'un Bloc
 struct BlocCell: View {
     
     @ObservedObject var blocVM: BlocVM

@@ -9,9 +9,10 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Petit détail d'une UE avec les informations importantes (nom, moyenne, coef)
 struct UEInfoDetailView: View {
     
-    @State var colorRectangle: String = ColorAssets.COLORRECTANGLEGREEN
+    @State var colorRectangle: String = ColorAssets.COLORRECTANGLEGREEN // Couleur d'une UE (rouge si < 10)
     @ObservedObject var ue: UEVM
     
     var body: some View {

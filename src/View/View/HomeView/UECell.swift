@@ -9,6 +9,7 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Affiche une UE
 struct UECell: View {
     
     @ObservedObject var ue: UEVM

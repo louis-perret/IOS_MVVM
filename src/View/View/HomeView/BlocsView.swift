@@ -9,6 +9,7 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Représente la vue des blocs
 struct BlocsView: View {
     
     @ObservedObject var odin: OdinVM

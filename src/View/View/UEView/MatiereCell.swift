@@ -9,14 +9,17 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Affiche une matière
 struct MatiereCell: View {
     
-    private static let ICONOPENEDLOCK: String = "lock.open"
-    private static let ICONCLOSEDLOCK: String = "lock"
+    private static let ICONOPENEDLOCK: String = "lock.open" // cadenas ouvert signifiant l'édition possible
+    private static let ICONCLOSEDLOCK: String = "lock" // cadenas fermé signifiant qu'aucune édition n'est possible
     
-    @ObservedObject var matiere: MatiereVM
-    @State var icon: String = MatiereCell.ICONCLOSEDLOCK
-    @State var colorRectangle: String = ColorAssets.COLORRECTANGLEGREEN
+    @ObservedObject var matiere: MatiereVM // Matière à afficher
+    @State var icon: String = MatiereCell.ICONCLOSEDLOCK // Cadenas à afficher (change dynamiquement)
+    @State var colorRectangle: String = ColorAssets.COLORRECTANGLEGREEN // Couleur du rectangle représentant la moyenne de la matière (rouge si c'est dernière est < 10)
+    
+    // Drag gesture pour gérer la modification de la moyenne par déplacementx
     var dragGestureMoyenne: some Gesture {
         DragGesture()
             .onChanged { value in
@@ -83,6 +86,7 @@ struct MatiereCell: View {
         }
     }
     
+    // Set l'image du cadenas
     private func setIsEditing() {
         if matiere.isEdited {
             matiere.isEdited = false

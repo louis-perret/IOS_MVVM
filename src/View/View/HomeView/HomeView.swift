@@ -9,6 +9,7 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Home Page
 struct HomeView: View {
     
     @ObservedObject var odin: OdinVM

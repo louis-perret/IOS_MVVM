@@ -9,6 +9,8 @@ import SwiftUI
 import ViewModel
 import Modele
 
+
+// Affiche le detail d'une UE
 struct DetailUEView: View {
     
     @ObservedObject var ue: UEVM

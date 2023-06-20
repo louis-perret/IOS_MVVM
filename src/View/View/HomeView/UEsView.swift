@@ -9,6 +9,7 @@ import SwiftUI
 import ViewModel
 import Modele
 
+// Affiche la liste des UES
 struct UEsView: View {
     
     @ObservedObject var odin: OdinVM

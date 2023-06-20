@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Affiche les informations concernant une UE
 struct InfoView: View {
     
     var icon: String
