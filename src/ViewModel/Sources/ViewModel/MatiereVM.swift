@@ -95,7 +95,7 @@ public class MatiereVM : ObservableObject, Identifiable, Equatable {
     
     // Init
     public convenience init(withEdition isEditing: Bool = false) {
-        self.init(withMatiere: Matiere(name: "Nouvelle matière", coef: 0, moyenne: 0), andEdition: isEditing)
+        self.init(withMatiere: Matiere(name: "Nouvelle matière", coef: 1, moyenne: 10), andEdition: isEditing)
     }
     
     // Init

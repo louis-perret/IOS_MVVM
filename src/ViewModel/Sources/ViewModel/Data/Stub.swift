@@ -24,7 +24,7 @@ public struct Stub {
         ])
         
         let ue2 = UE(id: UUID(), name: "UE2 Système et réseau", coef: 6, matieres: [
-            Matiere(id: UUID(), name: "Internet des objets", coef: 4, moyenne: -1),
+            Matiere(id: UUID(), name: "Internet des objets", coef: 4, moyenne: 10),
             Matiere(id: UUID(), name: "Réseaux", coef: 4, moyenne: 15.5),
             Matiere(id: UUID(), name: "Services Mobiles", coef: 4, moyenne: 18),
             Matiere(id: UUID(), name: "Système", coef: 5, moyenne: 12.38)
@@ -34,7 +34,7 @@ public struct Stub {
             Matiere(id: UUID(), name: "Anglais", coef: 5, moyenne: 10.8),
             Matiere(id: UUID(), name: "Communication", coef: 4, moyenne: 16),
             Matiere(id: UUID(), name: "Economie", coef: 4, moyenne: 14.5),
-            Matiere(id: UUID(), name: "Gestion", coef: 3, moyenne: -1)
+            Matiere(id: UUID(), name: "Gestion", coef: 3, moyenne: 10)
         ])
         
         let ue4 = UE(id: UUID(), name: "UE4 Technologies Mobiles 1", coef: 9, matieres: [
@@ -46,11 +46,11 @@ public struct Stub {
         
         let ue5 = UE(id: UUID(), name: "UE5 Technologies Mobiles 2", coef: 9, matieres: [
             Matiere(id: UUID(), name: "Architecture de projets C# .NET (2)", coef: 4, moyenne: 14),
-            Matiere(id: UUID(), name: "Client/Serveur", coef: 4, moyenne: -1),
-            Matiere(id: UUID(), name: "iOS", coef: 5, moyenne: -1),
-            Matiere(id: UUID(), name: "Multiplateforme", coef: 3, moyenne: -1),
+            Matiere(id: UUID(), name: "Client/Serveur", coef: 4, moyenne: 10),
+            Matiere(id: UUID(), name: "iOS", coef: 5, moyenne: 10),
+            Matiere(id: UUID(), name: "Multiplateforme", coef: 3, moyenne: 10),
             Matiere(id: UUID(), name: "QT QUICK", coef: 5, moyenne: -1),
-            Matiere(id: UUID(), name: "MAUI", coef: 5, moyenne: -1)
+            Matiere(id: UUID(), name: "MAUI", coef: 5, moyenne: 10)
         ])
         
         let ue6 = UE(id: UUID(), name: "UE6 Projet", coef: 9, matieres: [
@@ -58,7 +58,7 @@ public struct Stub {
         ])
         
         let ue7 = UE(id: UUID(), name: "UE7 Stage", coef: 15, matieres: [
-            Matiere(id: UUID(), name: "Stage", coef: 1, moyenne: -1)
+            Matiere(id: UUID(), name: "Stage", coef: 1, moyenne: 10)
         ])
         
         /* odin.ues.append(ue1)
