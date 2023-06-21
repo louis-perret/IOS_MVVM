@@ -6,10 +6,9 @@
 //
 
 import Foundation
-
-// Représente un Bloc (un bloc étant un regroupement d'UE)
-public struct Bloc:Identifiable, Equatable {
     
+// Représente un Bloc (un bloc étant un regroupement d'UE)
+public struct Bloc:Identifiable, Equatable, Codable {
     
     public let id:UUID
     public var name: String

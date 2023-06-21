@@ -50,6 +50,7 @@
 /* Begin PBXFileReference section */
 		EC1F80282A385FC000336AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2393372A35312500DBC6BF /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		EC4A4E122A42F94400CEC473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC5EE9D42A2247300019F07B /* UEsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UEsView.swift; sourceTree = "<group>"; };
 		EC5EE9D62A2249700019F07B /* UECell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UECell.swift; sourceTree = "<group>"; };
 		EC5EE9D82A2258790019F07B /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		ECF1B0C42A1FA15C00D59CA9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC4A4E122A42F94400CEC473 /* Info.plist */,
 				EC1F80282A385FC000336AEA /* Assets.xcassets */,
 				EC5EE9E22A225A9A0019F07B /* Preview Content */,
 				ECB6A2E72A222EE5004F777F /* HomeView */,
@@ -518,6 +520,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"View/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = View/Info.plist;
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = odin.data;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -546,6 +550,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"View/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = View/Info.plist;
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = odin.data;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

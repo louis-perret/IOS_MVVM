@@ -13,6 +13,11 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
     
     // Model wrappé
     @Published  var model: Bloc {
+        willSet(newValue) {
+            if !self.ues.map({$0.model}).compare(to: newValue.ues){
+                self.ues.forEach { $0.unsubscribe(with: self) }
+            }
+        }
         didSet {
             if self.name != self.model.name {
                 self.name = self.model.name;
@@ -23,6 +28,8 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
                     euvm.subscribe(with: self, and: onNotifyChanged)
                 }
             }
+            
+            onNotify()
         }
     }
     
@@ -60,7 +67,7 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
     
     // Equals
     public static func == (lhs: BlocVM, rhs: BlocVM) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id && lhs.ues.compare(to: rhs.ues) && lhs.name == rhs.name
     }
     
     // Hashcode
@@ -68,7 +75,24 @@ public class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
         hasher.combine(name)
     }
     
+
     // Méthode appelée quand une des UEVM du bloc a changé
+    private var updateFuncs: [AnyHashable:(BlocVM) -> ()] = [:]
+        
+    public func subscribe(with obj: AnyHashable, and function:@escaping (BlocVM) -> ()) {
+        updateFuncs[obj] = function
+    }
+        
+    public func unsubscribe(with obj: AnyHashable) {
+        updateFuncs.removeValue(forKey: obj)
+    }
+        
+    private func onNotify(){
+        for f in updateFuncs.values {
+            f(self)
+        }
+    }
+    
     func onNotifyChanged(source:UEVM){
         if let index = self.model.ues.firstIndex(of: source.model){
             self.model.ues[index] = source.model
