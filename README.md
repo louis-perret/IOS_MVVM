@@ -7,7 +7,7 @@ Cette application vous permet d'entrer vos différente notes par UE vous permett
 - [x] Lister les différents blocs et ues
 - [x] Afficher le détail d'une UE
 - [x] Modifier une UE (son nom, son coef, ajouter/supprimer/modifier une matière)
-- [ ] Sauvegarde des données
+- [x] Sauvegarde des données en JSON
 
 ## 🖥️ Stack techniques
 
