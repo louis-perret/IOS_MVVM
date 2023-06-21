@@ -7,7 +7,7 @@ Cette application vous permet d'entrer vos différente notes par UE vous permett
 - [x] Lister les différents blocs et ues
 - [x] Afficher le détail d'une UE
 - [x] Modifier une UE (son nom, son coef, ajouter/supprimer/modifier une matière)
-- [ ] Sauvegarde des données
+- [x] Sauvegarde des données en JSON
 
 ## 🖥️ Stack techniques
 
@@ -18,6 +18,10 @@ Cette application vous permet d'entrer vos différente notes par UE vous permett
 ## ⚙️ How to run the app ?
 
 > Ouvrer, sous XCode, le fichier src/IOS_MVVM.xcworkspace, sélectionner comme schéma (projet) actif le projet View, puis exécuter l'application.
+
+## Problèmes connus 
+
+- Quand vous relancer l'application après la première exécution sur l'émulateur, il se peut que rien ne s'affiche à l'écran. Il suffit de la relancer. Vos donnez auront été correctement sauvegardées n'ayez crainte.
 
 ## 👤 Author
 
