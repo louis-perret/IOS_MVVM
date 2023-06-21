@@ -19,6 +19,10 @@ Cette application vous permet d'entrer vos différente notes par UE vous permett
 
 > Ouvrer, sous XCode, le fichier src/IOS_MVVM.xcworkspace, sélectionner comme schéma (projet) actif le projet View, puis exécuter l'application.
 
+## Problèmes connus 
+
+- Quand vous relancer l'application après la première exécution sur l'émulateur, il se peut que rien ne s'affiche à l'écran. Il suffit de la relancer. Vos donnez auront été correctement sauvegardées n'ayez crainte.
+
 ## 👤 Author
 
 **PERRET Louis**
