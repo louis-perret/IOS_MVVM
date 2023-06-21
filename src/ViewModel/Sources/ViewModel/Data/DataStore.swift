@@ -13,30 +13,48 @@ import Modele
 class DataStore {
 
     private static func fileURL() throws -> URL {
-        try FileManager.default.url(for: .documentDirectory,
-                                    in: .userDomainMask,
-                                    appropriateFor: nil,
-                                    create: false)
-        .appendingPathComponent("odin.data")
+        // find all possible documents directories for this user
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+            // just send back the first one, which ought to be the only one
+            return paths[0]
     }
 
     func load() async throws -> [Bloc] {
-        let task = Task<[Bloc], Error> {
+        if let savedPerson = UserDefaults.standard.object(forKey: "SavedOdin") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode([Bloc].self, from: savedPerson) {
+                return loadedPerson
+            }
+        }
+        return []
+        /*let task = Task<[Bloc], Error> {
             let fileURL = try Self.fileURL()
             guard let data = try? Data(contentsOf: fileURL) else {
                 return []
             }
             return try JSONDecoder().decode([Bloc].self, from: data)
         }
-        return []
+        return []*/
     }
     
     func save(blocs: [Bloc]) async throws {
-        let task = Task {
-            let data = try JSONEncoder().encode(blocs)
-            let outfile = try Self.fileURL()
-            try data.write(to: outfile)
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(blocs) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "SavedOdin")
         }
-        try await task.value
+        /*let task = Task {
+            do {
+                let  data = try JSONEncoder().encode(blocs)
+                let outfile = try Self.fileURL()
+                print(outfile)
+                try data.write(to: outfile)
+            }
+            catch {
+                print(error)
+            }
+        }
+        try await task.value*/
     }
 }
